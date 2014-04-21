@@ -2,23 +2,28 @@
 pageable: true
 per_page: 20
 ---
+
+<% page_articles.each_with_index do |article, i| %>
+<article class="row">
+  <div class="small-11 small-centered large-8 large-centered columns post">
+    <header>
+      <h2><%= link_to article.title, article %></h2>
+      <span>
+        <%= article.date.strftime('%b %e') %>
+      </span>
+    </header>
+    <%= article.summary(400) %>
+    <%= link_to 'Continue reading', article %>
+  </div>
+</article>
+<% end %>
+
 <% if paginate && num_pages > 1 %>
   <p>Page <%= page_number %> of <%= num_pages %></p>
 
   <% if prev_page %>
     <p><%= link_to 'Previous page', prev_page %></p>
   <% end %>
-<% end %>
-
-<% page_articles.each_with_index do |article, i| %>
-  <article>
-    <header>
-      <h2><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></h2>
-    </header>
-  <!-- use article.summary(250) if you have Nokogiri available to show just
-       the first 250 characters -->
-  <%= article.body %>
-</article>
 <% end %>
 
 <% if paginate %>
