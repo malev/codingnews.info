@@ -1,6 +1,7 @@
 ---
 title: Beyond Scrapping
 date: 2014-04-18 21:39 UTC
+author: Marcos Vanetta
 tags: scrapping, dev
 ---
 

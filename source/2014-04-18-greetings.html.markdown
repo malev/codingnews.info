@@ -1,6 +1,7 @@
 ---
 title: Greetings!
 date: 2014-04-18 21:29 UTC
+author: Marcos Vanetta
 tags: random
 ---
 
