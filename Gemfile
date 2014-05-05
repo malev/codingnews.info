@@ -8,6 +8,7 @@ gem "middleman-deploy"
 gem "compass", "0.12.6"
 gem "foundation"
 gem "nokogiri"
+gem "ejs"
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
