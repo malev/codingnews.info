@@ -1,0 +1,14 @@
+@import "settings";
+@import "foundation.scss";
+
+table{
+  .good{
+    background-color: $success-color;
+  }
+  .wrong{
+    background-color: $alert-color;
+  }
+  .unknown{
+    background-color: $info-color;
+  }
+}

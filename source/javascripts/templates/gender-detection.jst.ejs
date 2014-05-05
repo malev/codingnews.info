@@ -1,0 +1,20 @@
+<table class='responsive'>
+  <tr>
+    <th>Name</th>
+    <th>Test data</th>
+    <th>Beauvoir</th>
+    <th>SexMachine</th>
+    <th>Genderize</th>
+    <th>genderPredictor</th>
+  </tr>
+  <%_.forEach(tableData, function (row) {%>
+  <tr>
+    <td><%= row[0] %></td>
+    <td><%= row[1] %></td>
+    <td class="<%= row[6] %>"><%= row[2] %></td>
+    <td class="<%= row[7] %>"><%= row[3] %></td>
+    <td class="<%= row[8] %>"><%= row[4] %></td>
+    <td class="<%= row[9] %>"><%= row[5] %></td>
+  </tr>
+  <%})%>
+</table>
