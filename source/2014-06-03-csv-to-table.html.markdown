@@ -2,7 +2,6 @@
 title: CSV to table
 date: 2014-06-03 18:00 UTC
 tags: programming, opensource
-published: false
 ---
 
 A few days ago we published an article with a table at the [TexasTribune](http://texastribune.org). We usually work with tables in format `CSV` and then we publish them in `HTML`. In that case I used a random tool I found on the web. That was usually pretty straightforward, but then we needed to customize with classes and data attributes. The last task was really terrible.
