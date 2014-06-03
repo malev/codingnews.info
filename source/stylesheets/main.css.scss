@@ -15,6 +15,9 @@ body>header{
     }
   } 
 }
+strong, b{
+  color: darken(#9ea7b1, 30%);
+}
 .presentation{
   margin-bottom: 100px;
   p{
@@ -29,6 +32,9 @@ body>header{
   }
 }
 .blog{
+  code{
+    color: #26ae90;
+  }
   .post{
     border-top: 1px solid #dfe2e6;
     margin-top: 30px;
