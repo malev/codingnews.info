@@ -14,4 +14,6 @@ Finally, for the file-sharing system we started trying different solutions. We t
 
 At the end of the Hack Day, we had a technology soup with some JavaScript, some Python, and a couple of hacked routers. The experience was incredible! The source code is [here](https://github.com/mozilla/keyblur) and [here](https://github.com/pudo/flatchat) and of course, we are open to suggestions and contributions.
 
+![Keynlur lovely poster](/images/mit-poster.jpg)
+
 Last note: through this project, I learned about the PirateBox project and I’m looking forward to play with my brand new PirateBox!
