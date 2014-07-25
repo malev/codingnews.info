@@ -2,7 +2,6 @@
 title: PirateBox (EN)
 date: 2014-07-25 15:31 UTC
 tags: community, open-hardware
-published: false
 ---
 
 *(Hay una versión en Español [aquí](/post/piratebox-es.html))*
