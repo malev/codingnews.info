@@ -14,6 +14,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    colorize (0.7.3)
     compass (0.12.6)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -22,8 +23,33 @@ GEM
       sass (>= 3.2, < 3.5)
     ejs (1.1.1)
     erubis (2.7.0)
+    excon (0.38.0)
     execjs (2.2.0)
     ffi (1.9.3)
+    fog (1.23.0)
+      fog-brightbox
+      fog-core (~> 1.23)
+      fog-json
+      fog-softlayer
+      ipaddress (~> 0.5)
+      nokogiri (~> 1.5, >= 1.5.11)
+    fog-brightbox (0.1.1)
+      fog-core (~> 1.22)
+      fog-json
+      inflecto
+    fog-core (1.23.0)
+      builder
+      excon (~> 0.38)
+      formatador (~> 0.2)
+      mime-types
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+    fog-json (1.0.0)
+      multi_json (~> 1.0)
+    fog-softlayer (0.3.11)
+      fog-core
+      fog-json
+    formatador (0.2.5)
     foundation (1.0.4)
       thor (>= 0.18.1)
     fssm (0.2.10)
@@ -33,12 +59,15 @@ GEM
     hooks (0.4.0)
       uber (~> 0.0.4)
     i18n (0.6.9)
+    inflecto (0.0.2)
+    ipaddress (0.8.0)
     json (1.8.1)
     kramdown (1.4.0)
     listen (1.3.1)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
+    map (6.5.4)
     middleman (3.3.3)
       coffee-script (~> 2.2.0)
       compass (>= 0.12.4)
@@ -70,14 +99,25 @@ GEM
       middleman-core (>= 3.0.0)
       net-sftp
       ptools
+    middleman-s3_sync (3.0.30)
+      colorize
+      fog (>= 1.10.1)
+      map
+      middleman-core (>= 3.0.0)
+      pmap
+      ruby-progressbar
+      unf
     middleman-sprockets (3.3.3)
       middleman-core (>= 3.2)
       sprockets (~> 2.2)
       sprockets-helpers (~> 1.1.0)
       sprockets-sass (~> 1.1.0)
+    mime-types (2.3)
     mini_portile (0.6.0)
     minitest (5.3.5)
     multi_json (1.10.1)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -89,6 +129,7 @@ GEM
       tilt (~> 1.4.1)
     padrino-support (0.12.2)
       activesupport (>= 3.1)
+    pmap (1.0.1)
     ptools (1.2.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -98,6 +139,7 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.3)
       ffi (>= 0.5.0)
+    ruby-progressbar (1.5.1)
     sass (3.2.19)
     sprockets (2.12.1)
       hike (~> 1.2)
@@ -118,6 +160,9 @@ GEM
     uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.6)
 
 PLATFORMS
   ruby
@@ -130,4 +175,5 @@ DEPENDENCIES
   middleman
   middleman-blog (~> 3.5.2)
   middleman-deploy
+  middleman-s3_sync
   nokogiri
