@@ -34,61 +34,8 @@
         </ul>
       </div>
     </header>
-    <% unless is_blog_article? %>
-    <div class="row presentation">
-      <div class="small-11 small-centered large-8 large-centered columns">
-        <h2>Tales from a fellowship</h2>
-        <p>
-          Hi! My name is <b>Marcos Vanetta</b>, I've been selected as a Knight Mozilla Fellow
-          2014 and I'll be working at the Texas Tribune all over the year. I opened this
-          blog to share my experiences, discuss about Data Journalism, Open Source and
-          some technical stuff.
-        </p>
-        <div class="blog-arrow">
-          <h4>Blog!</h4>
-          <a href="/#blog"><i class="fa fa-arrow-down"></i></a>
-        </div>
-      </div>
-    </div>
-    <% end -%>
     <section id="blog" class="blog main">
-      <% if is_blog_article? %>
-        <article class="row single-article">
-          <div class="small-11 small-centered large-8 large-centered columns">
-            <header>
-              <h2><%=  current_article.title %></h2>
-              <span class="date">
-                <%= current_article.date.strftime('%b %e') %>
-              </span>
-            </header>
-            <%= yield %>
-            <footer>
-              <% unless current_article.tags.empty? %>
-              <b>Tags:</b>
-              <%= current_article.tags.map { |tag| link_to tag, tag_path(tag)}.join(", ") %>
-              <% end -%>
-            </footer>
-            <div class="comments">
-              <div id="disqus_thread"></div>
-              <script type="text/javascript">
-              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-              var disqus_shortname = 'codingnews'; // required: replace example with your forum shortname
-
-              /* * * DON'T EDIT BELOW THIS LINE * * */
-              (function() {
-                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-              </script>
-              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-          </div>
-        </article>
-      <% else %>
-        <%= yield %>
-      <% end -%>
+      <%= yield %>
     </section>
     <div class="row pre-footer">
       <div class="large-8 large-centered columns division"></div>
@@ -103,18 +50,8 @@
         </ul>
       </div>
       <div class="large-2 columns">
-        <label>Tags</label>
-        <ul class="tags">
-          <% blog.tags.each do |tag, articles| %>
-          <li><%= link_to "#{tag} (#{articles.size})", tag_path(tag) %></li>
-          <% end -%>
-        </ul>
       </div>
       <div class="large-2 columns end">
-        <label>Resources</label>
-        <ul class="feeds">
-          <li><a href="/feed.xml">Feed</a></li>
-        </ul>
       </div>
     </footer>
     <script>
