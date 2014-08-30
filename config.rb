@@ -29,6 +29,7 @@ activate :blog do |blog|
   # blog.page_link = "page/{num}"
 end
 
+ignore 'empty.erb'
 page "/feed.xml", layout: false
 
 ###
