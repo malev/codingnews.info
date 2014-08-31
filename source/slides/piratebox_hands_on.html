@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PirateBox - Hands On!</title>
+    <meta name="description" content="PirateBox - Hands On!">
+    <meta name="author" content="Marcos Vanetta">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>PirateBox<h1>
+          <h2>Manos a la obra!</h2>
+          <p>
+            <small>Por <a href="http://codingnews.info">Marcos Vanetta</a> / <a href="http://twitter.com/malev">@malev</a></small>
+          </p>
+          <p>
+            <small>con ayuda de <a href="http://codingnews.info">Gabriela Rodriguez</a> / <a href="http://twitter.com/gaba">@gaba</a></small>
+          </p>
+
+        </section>
+
+        <section>
+          <h2>Quién soy?</h2>
+          <p>
+            Marcos Vanetta, entusiasta de las tecnologías libres y trabajo como Knight/Mozilla Fellow at The TexasTribune. @malev
+          </p>
+        </section>
+
+        <section>
+          <h3>Se acuerdan del</h3>
+          <img src="piratebox_hands_on/google-dont-be-evil.gif">
+        </section>
+
+        <section>
+          <h3>O ahora será...</h3>
+          <img src="piratebox_hands_on/google-dont-be-evil2.jpg">
+        </section>
+
+        <section>
+          <h3>En tiempos de la nube</h3>
+          <img src="piratebox_hands_on/nube.jpg">
+        </section>
+
+        <section>
+          <h3>Conocen a estos pibes?</h3>
+          <img src="piratebox_hands_on/nsa.jpg">
+        </section>
+
+        <section>
+          <img src="piratebox_hands_on/nsa_in_da_housei.jpg">
+          <p>
+            <samp>Esta foto esta aquí sólo por que me parece fantástica</samp>
+          </p>
+        </section>
+
+        <section>
+          <h3></h3>
+          <img src="piratebox_hands_on/turkey_protest.jpg">
+        </section>
+
+        <section>
+          <h3>Y empezaron a pasar cosas como esta</h3>
+          <img src="piratebox_hands_on/prison_twitter.jpg">
+        </section>
+
+        <section>
+          <h3>O cosas como</h3>
+          <img src="piratebox_hands_on/censored.jpg">
+        </section>
+
+        <section>
+          <h3>La verdad es que</h3>
+          <img src="piratebox_hands_on/tenemos_un_problema.jpg">
+        </section>
+
+        <section>
+          <h3>PirateBox</h3>
+          <img src="piratebox_hands_on/pirate-box.jpg">
+        </section>
+
+        <section>
+          <p>Un router y un dispositivo de almacenamiento para crear una red inalámbrica que permita a sus usuarios compartir archivos de manera anónima y local. El proyecto fue iniciado por David Darts de NYU y hoy es mantenido en gran parte por Matthias Strubel (@MatthiasStrubel).</p>
+          <p>Cuenta el apoyo de una comunidad interesante.</p>
+          <ul>
+            <li>@PirateBox_Dev</li>
+            <li>#piratebox</li>
+            <li>forum.piratebox.cc</li>
+            <li>@pirateboxcamp</li>
+          </ul>
+        </section>
+
+        <section>
+          <p>PirateBox is registered under the GNU GPLv3. This license grants you the right to freely copy, distribute, and transform creative works according to the principles of copyleft.</p>
+        </section>
+
+        <section>
+          <h3>QUIERO UNO YA!</h3>
+          <img src="piratebox_hands_on/take-my-money.png">
+        </section>
+
+        <section>
+          <h3>No!</h3>
+          <img src="piratebox_hands_on/nope.jpg">
+        </section>
+
+        <section>
+          <h3>Lo vamos a hacer nosotrxs!</h3>
+          <p>Necesitamos:</p>
+          <ul>
+            <li>Computadora</li>
+            <li>Router TP-Link MR3020 o TP-Link MR3040</li>
+            <li>Pendrive</li>
+          </ul>
+        </section>
+
+        <section>
+          <ul>
+            <li>Bajen los archivos desde Piratebox (malev)</li>
+            <li>Copiar 'install' en el pedrive</li>
+            <li>Poner el Router en modo 3G</li>
+            <li>Conectar el router a la computadora</li>
+            <li>IP: 192.168.0.1 (MR3040) y 192.168.0.254 (MR3020)</li>
+            <li>User/Password: admin/admin</li>
+            <li>Firmware Upgrade with the correct firmware</li>
+          </ul>
+        </section>
+
+        <section>
+          <p>Esperemos...</p>
+          <h2 class="fragment">LISTO!</h2>
+        </section>
+
+        <section>
+          <h2>El después</h2>
+          <ul>
+            <li>telnet 192.168.1.1</li>
+            <li>Password</li>
+            <li>Cambiar SSID</li>
+            <li>Disfrutar</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Cambiar la SSID</h2>
+          <ul>
+            <li>vi /etc/config/wireless</li>
+            <li>/etc/init.d/network reload</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Y ahora?</h2>
+          <p>Jugamos!</p>
+        </section>
+
+        <section>
+          <h2>Recursos</h2>
+          <ul>
+            <li><a href="http://piratebox.cc/">Sitio oficial</a></li>
+            <li><a href="http://librarybox.us/">LibraryBox</a></li>
+            <li><a href="http://www.disk91.com/2012/technology/systems/customizing-piratebox-configuration/">Algunas configuraciones</a></li>
+            <li><a href="http://christophe.vandeplas.com/2009/03/sharing-safely-your-internet-connection_01.html">Compartir tu red</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Gracias</h2>
+          <p>Comentarios y opiniones a <a href="http://twitter.com/malev">@malev</a>.</p>
+        </section>
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
