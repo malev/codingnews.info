@@ -1,6 +1,6 @@
 ---
 title: Un paso para más Internet en las calles (es)
-date: 2014-09-05 20:32 UTC
+date: 2014-09-05 11:00 UTC
 tags: piratebox, open internet, share, community
 ---
 
@@ -64,6 +64,7 @@ Vamos a nuestro `/etc/config/network` y lo cambiamos por:
       list dns '8.8.4.4'
 
 Reiniciamos y listo!
+
 **NOTA 0:** Por ahora, sólo hemos habilitado Internet en nuestro PirateBox, pero todavía estamos en la misma red y por lo tanto es muy inseguro! En un próximo post vamos a explorar otras alternativas más seguras.
 
 **NOTA 2:** Este post también está publicado en el [blog](http://gaba.stayover.org/2014/09/05/229/) de [Gaba](https://twitter.com/gaba).
