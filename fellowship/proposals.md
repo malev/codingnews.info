@@ -1,5 +1,12 @@
 # Proposals
 
+## DataBootCamp - 2014 (Mex)
+### Hands on Extracción de datos
+Ejemplos de extracción y almacenamiento de datos desde distintas fuentes. (90min).
+
+### Hands on Limpieza de datos
+Actividades y ejemplos de limpieza de bases de datos. (90min).
+
 ## MediaParty - 2014
 ### The Texas Tribune, qué hacemos y cómo lo hacemos
 En The Texas Tribune nos tomamos los temas referidos a datos de manera bastante seria, por eso, en esta charla les quiero contar cómo es el día a día del News App Team. Cómo involucramos a nuestros colegas periodistas y cuál es el proceso alrededor de cada app que publicamos. Un poquito acerca de las herramientas y servicios que usamos que usamos y algunos detalles sobre uno de nuestros últimos juguetes, The Texas Hospitals Explorer.
