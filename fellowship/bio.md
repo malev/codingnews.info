@@ -1,4 +1,7 @@
 # Bio
+## Bio (fellowship) (es)
+Marcos Vanetta es Ingeniero Biomédico, se desarrolla como Knight Mozilla Fellow en el Texas Tribune, en la ciudad de Austin. Colabora en varios proyectos de Software Libre y participa en las comunidades de Python Argentina y Hacks / Hackers BA. Es el desarrollador principal de Analice.me y se define como un promotor de las tecnologías libres y fanático del Rock and Roll.
+
 ## Long bio (es)
 Marcos Vanetta es Ingeniero Biomédico y próximo Especialista en Ingeniería de Software. Formó parte de un equipo de investigación en la Universidad Nacional de Tucumán y trabaja actualmente como Software Designer. Colabora en varios proyectos de Software Libre y participa en las comunidades de Python Argentina y Hacks / Hackers BA; donde vuelca casi todos sus esfuerzos en Mapa76. Promotor de las tecnologías libres y fanático del Rock and Roll. Lo pueden encontrar en el hackathon más cercano o en @malev.
 
