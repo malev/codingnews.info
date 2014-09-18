@@ -54,7 +54,7 @@ header.main {
 .main-container{
   @include outer-container;
   margin-top: 1em;
-  article {
+  article.list {
     @include span-columns(12);
     border-bottom: 2px solid $light-gray;
     margin-bottom: 1em;
@@ -63,6 +63,33 @@ header.main {
       color: darken($light-gray, 40);
       float: right;
     }
+  }
+  header.article {
+    border-right: 7px solid $light-green;
+    border-bottom: 2px solid $light-green;
+    text-align: right;
+    padding: 1em;
+    margin-bottom: 1em;
+    .date {
+      font-style: italic;
+    }
+  }
+  article.post {
+    h1{
+      font-size: $base-font-size * 1.75;
+    }
+    h2 {
+      font-size: $base-font-size * 1.5;
+    }
+    h3 {
+      font-size: $base-font-size * 1.25;
+    }
+    h4, h5, h6 {
+      font-size: $base-font-size;
+    }
+  }
+  .comments {
+    margin: 1em 0;
   }
 }
 
