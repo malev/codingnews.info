@@ -4,9 +4,9 @@ date: 2014-09-18 15:45 UTC
 tags: ruby, programming, hacking
 ---
 
-Hello! If you are reading this blog, then you are reading a blog generated with [Middleman](middlemanapp.com). Yet another static site generator! But **I like this one**. Thanks to the community behind it, there are plenty of [extensions](http://directory.middlemanapp.com/#/extensions/all) around there and if you come from the Rails world, you'll fell amazing with the [Asset Pipeline](http://middlemanapp.com/basics/asset-pipeline/). Ok, ok, enought. **Let's deploy it into S3!**
+Hello! If you are reading this blog, then you are reading a blog generated with [Middleman](middlemanapp.com). Yet another static site generator! But **I like this one**. Thanks to the community behind it, there are plenty of [extensions](http://directory.middlemanapp.com/#/extensions/all) around there and if you come from the Rails world, you'll find amazing with the [Asset Pipeline](http://middlemanapp.com/basics/asset-pipeline/). Ok, ok, enought. **Let's deploy it into S3!**
 
-We will need a **middleman** app. We are going to use [asistencia-victima](https://github.com/hhba/asistencia-victima). Just clone it and the run:
+We will need a **middleman** app. We are going to use [asistencia-victima](https://github.com/hhba/asistencia-victima). Just clone it and then run:
 
     git clone https://github.com/hhba/asistencia-victima.git
     cd asistencia-victima
@@ -20,7 +20,7 @@ And we will have a `build` directory with the files ready for S3.
 
 ## S3 Configuration
 
-Go to your [S3](https://console.aws.amazon.com/s3/home) Web Service. Create a new bucket and grab it's name and region. You will also need to change some permissions. Select your brand new bucket and click on properties. Open the permissions accordion and add a new grantee: **Everyone** with **List** permissions.  You will need to edit your bucket policy and leave it like:
+Go to your [S3](https://console.aws.amazon.com/s3/home) Web Service. Create a new bucket and grab its name and region. You will also need to change some permissions. Select your brand new bucket and click on properties. Open the permissions accordion and add a new grantee: **Everyone** with **List** permissions.  You will need to edit your bucket policy and leave it like:
 
     {
         "Version": "2012-10-17",
