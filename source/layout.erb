@@ -35,7 +35,7 @@
           <li><a href="http://ar.linkedin.com/in/marcosvanetta"><i class="fa fa-linkedin"></i></a></li>
         </ul>
       </div>
-      <img src="/images/100_0855.JPG">
+      <img src="/images/100_0855.JPG" id="main-image">
     </header>
     <div class="main-container">
       <% if is_blog_article? %>
@@ -100,6 +100,14 @@
         e.src='//www.google-analytics.com/analytics.js';
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
         ga('create','UA-29516046-2');ga('send','pageview');
+    </script>
+    <script type="text/javascript">
+      var images = ['berlin.png', 'brussels.png', 'rosario.png', 'austin.png'],
+          element = document.getElementById('main-image'),
+          img;
+      img = images[Math.floor(Math.random() * images.length)];
+
+      element.setAttribute('src', 'images/' + img);
     </script>
   </body>
 </html>
