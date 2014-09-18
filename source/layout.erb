@@ -38,9 +38,31 @@
       <img src="/images/100_0855.JPG">
     </header>
     <div class="main-container">
-      <%= yield %>
+      <% if is_blog_article? %>
+        <%= yield %>
+      <% else %>
+        <%= yield %>
+      <% end %>
     </div>
-    <footer></footer>
+    <footer class="footer">
+      <div class="resource">
+        <label>Tags</label>
+        <ul class="tags">
+          <% blog.tags.each do |tag, articles| %>
+          <li><%= link_to "#{tag.titleize} (#{articles.size})", tag_path(tag) %></li>
+          <% end -%>
+        </ul>
+      </div>
+      <div class="resource">
+        <label>Resources</label>
+        <ul class="links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#projects">Projects</a></li>
+          <li><a href="/talks.html">Talks</a></li>
+          <li><a href="/feed.xml">Feed</a></li>
+        </ul>
+      </div>
+    </footer>
 
     <header class="row main">
       <div class="small-6 large-3 large-offset-2 columns">
