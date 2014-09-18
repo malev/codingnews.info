@@ -27,6 +27,7 @@ header.main {
   .links {
     @include span-columns(6);
     @include omega();
+    margin-top: 16px;
     ul {
       float: right;
       li {
@@ -37,5 +38,21 @@ header.main {
   }
   img {
     margin-top: 1em;
+  }
+  @include media($mobile) {
+    .title{
+      @include span-columns(12);
+    }
+    .links {
+      @include span-columns(12);
+      @include omega();
+      margin-top: 0;
+      ul {
+        float: left;
+        li:first-child{
+          margin-left: 0;
+        }
+      }
+    }
   }
 }
