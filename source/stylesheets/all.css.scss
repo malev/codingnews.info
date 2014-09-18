@@ -14,12 +14,6 @@ header.main {
       color: $light-gray;
     }
   }
-  a {
-    color: darken($light-green, 30%);
-    &:hover {
-      color: $light-gray;
-    }
-  }
   @include outer-container;
   .title{
     @include span-columns(6);
@@ -53,6 +47,20 @@ header.main {
           margin-left: 0;
         }
       }
+    }
+  }
+}
+.main-container{
+  @include outer-container;
+  margin-top: 1em;
+  article {
+    @include span-columns(12);
+    border-bottom: 2px solid $light-gray;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    .date{
+      color: darken($light-gray, 40);
+      float: right;
     }
   }
 }

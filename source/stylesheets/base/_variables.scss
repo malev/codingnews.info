@@ -36,7 +36,7 @@ $base-background-color: white;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$base-accent-color: darken($light-green, 40);
 
 // Link Colors
 $base-link-color: $base-accent-color;

@@ -4,17 +4,11 @@ per_page: 20
 ---
 
 <% page_articles.each_with_index do |article, i| %>
-<article class="row">
-  <div class="small-11 small-centered large-8 large-centered columns post">
-    <header>
-      <h2><%= link_to article.title, article %></h2>
-      <span>
-        <%= article.date.strftime('%b %e') %>
-      </span>
-    </header>
-    <%= article.summary(400) %>
-    <%= link_to 'Continue reading', article %>
-  </div>
+<article>
+  <%= link_to article.title, article %>
+  <span class="date">
+    <%= article.date.strftime('%b %e') %>
+  </span>
 </article>
 <% end %>
 
