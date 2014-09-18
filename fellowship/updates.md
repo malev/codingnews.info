@@ -1,5 +1,8 @@
 # Fellowship updates
 
+* http://codingnews.info/post/middleman-to-s3.html
+* http://www.texastribune.org/2014/09/18/interactive-2013-texas-rates-uninsured-and-poverty/
+
 ## 09/17/2014
 
 * Long meetings about elections in Texas
