@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+@import "bourbon";
+@import "base/base";   /* Bitters needs to be imported before Neat */
+@import "neat";
+
+// HEADER
+header.main {
+  padding-top: 1em;
+  h2 {
+    color: $light-green;
+    letter-spacing: -2px;
+    & strong{
+      color: $light-gray;
+    }
+  }
+  a {
+    color: darken($light-green, 30%);
+    &:hover {
+      color: $light-gray;
+    }
+  }
+  @include outer-container;
+  .title{
+    @include span-columns(6);
+  }
+  .links {
+    @include span-columns(6);
+    @include omega();
+    ul {
+      float: right;
+      li {
+        display: inline;
+        margin: 0px 10px;
+      }
+    }
+  }
+  img {
+    margin-top: 1em;
+  }
+}
