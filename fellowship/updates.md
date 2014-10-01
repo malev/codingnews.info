@@ -1,7 +1,13 @@
 # Fellowship updates
 
-* http://codingnews.info/post/middleman-to-s3.html
-* http://www.texastribune.org/2014/09/18/interactive-2013-texas-rates-uninsured-and-poverty/
+* HacksLabs - Working with the project "Facts Extraction"
+* Help with some graphs for the TT http://www.texastribune.org/2014/09/25/poll-few-texans-use-public-transportation-main-mod/
+* Visualization about rates of uninsured and poverty in Texas http://www.texastribune.org/2014/09/18/interactive-2013-texas-rates-uninsured-and-poverty/
+* Blog post about middleman and S3 http://codingnews.info/post/middleman-to-s3.html
+* Workshop about Data Extraction at Data BootCamp Mex http://mexico.dbootcamp.org/
+* Workshop about Data Cleaning at Data BootCamp Mex http://mexico.dbootcamp.org/
+* Participated in the second day of Data BootCamp
+* Moderate sessions for AbreLatam http://www.abrelatam.org/
 
 ## 09/17/2014
 
