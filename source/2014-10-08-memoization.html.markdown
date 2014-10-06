@@ -4,7 +4,7 @@ date: 2014-10-08 16:45 UTC
 tags: programming, ruby, javascript, python
 ---
 
-Memoization in computer programs is a relly simple concept. It's a optimizaiton technique where a computer program return a cached result when the same input occurs again. It's essencial when working with heavy calculation algorithms or time consuption functions. It basically works like this:
+Memoization in computer programs is a relly simple concept. It's a optimization technique where a computer program return a cached result when the same input occurs again. It's essencial when working with heavy calculation algorithms or time consuption functions. It basically works like this:
 
 * Something calls a function
 * Function performs calculation
@@ -12,12 +12,12 @@ Memoization in computer programs is a relly simple concept. It's a optimizaiton 
 * Funciton returns result
 * Someting calls the same function
 * Function returns cached value instead of performing heavy calculations
-* **Time saved!**
+* **Win!**
 
 
 ## Ruby
 
-In **Ruby**, **memoization** is almost part of the language:
+In **Ruby**, **memoization** is almost part of the language thanks to Ruby's conditional assignment (`||=`):
 
 ```ruby
 def slow_function
@@ -55,7 +55,7 @@ slow_function()
 => 'result'
 ```
 
-There is one caveat with this method. if `slow_function` returns `nil` instead of literaly anything else it will perform the heavy calculation everytime. In that particular and annoying case we can use the object method `defined?`:
+There is one caveat with this method. if `slow_function` returns `nil` instead of literaly anything else it will perform the heavy calculation everytime. In that particular and annoying case we can use the [object method](http://ruby-doc.org/docs/keywords/1.9/Object.html#method-i-defined-3F) `defined?`:
 
 ```ruby
 class HeavyClass
