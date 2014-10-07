@@ -56,7 +56,7 @@ slow_function()
 => 'result'
 ```
 
-There is one caveat with this method. If `slow_function` returns `nil` instead of literaly anything else it will perform the heavy calculation every time. In that specific and annoying case we can use the [object method](http://ruby-doc.org/docs/keywords/1.9/Object.html#method-i-defined-3F) `defined?`:
+There is one caveat with this method. If `slow_function` returns `nil`, it will perform the heavy calculation every time. In that specific and annoying case we can use the [object method](http://ruby-doc.org/docs/keywords/1.9/Object.html#method-i-defined-3F) `defined?`:
 
 ```ruby
 class HeavyClass
