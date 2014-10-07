@@ -5,7 +5,7 @@ tags: programming, ruby, javascript, python
 published: false
 ---
 
-Memoization in computer programs is a relly simple concept. It's a optimization technique where a computer program return a cached result when the same input occurs again. It's essencial when working with heavy calculation algorithms or time consuption functions. It basically works like this:
+Memoization in computer programs is a really simple concept. It's an optimization technique where a computer program returns a cached result when the same input occurs again. It's essential when working with heavy calculation algorithms or time consuming functions. It basically works like this:
 
 * Something calls a function
 * Function performs calculation
@@ -56,7 +56,7 @@ slow_function()
 => 'result'
 ```
 
-There is one caveat with this method. if `slow_function` returns `nil` instead of literaly anything else it will perform the heavy calculation everytime. In that particular and annoying case we can use the [object method](http://ruby-doc.org/docs/keywords/1.9/Object.html#method-i-defined-3F) `defined?`:
+There is one caveat with this method. If `slow_function` returns `nil` instead of literaly anything else it will perform the heavy calculation every time. In that specific and annoying case we can use the [object method](http://ruby-doc.org/docs/keywords/1.9/Object.html#method-i-defined-3F) `defined?`:
 
 ```ruby
 class HeavyClass
@@ -80,7 +80,7 @@ heavy_object.call
 => nil
 ```
 
-What if we use parameters? Simple, we will use a `Hash`. We will initialize our `Hash` with a `block` and according to the [Ruby documentation](http://www.ruby-doc.org/core-2.1.0/Hash.html) if we call our hash with an unexisting key, it will call our block as:
+What if we use parameters? Simple, we will use a `Hash`. We will initialize our `Hash` with a `block`. According to the [Ruby documentation](http://www.ruby-doc.org/core-2.1.0/Hash.html) if we call our hash with an unexisting key, it will call our block as:
 
 ```ruby
 hash = Hash.new do |h, key|
@@ -123,7 +123,7 @@ slow_method(2)
 
 ## Python
 
-In python, sadly things are not as easy as in Ruby, but that does not mean that they are impossible:
+Sadly, in Python things are not as easy as they are in Ruby, but that does not mean that they are impossible:
 
 ```python
 from time import sleep
@@ -169,11 +169,11 @@ slow_method(1)
 => 1
 ```
 
-If you are in **Python 3** maybe you can check `functools.lru_cache` on the [official documentation](https://docs.python.org/3/library/functools.html#functools.lru_cache) and if you are in **Django** you should also check the [django-memoize](http://pythonhosted.org/django-memoize/) library.
+If you are using **Python 3** maybe you can check `functools.lru_cache` on the [official documentation](https://docs.python.org/3/library/functools.html#functools.lru_cache) and if you are using **Django** you should also check the [django-memoize](http://pythonhosted.org/django-memoize/) library.
 
 ## Javascript
 
-We can define a method into the `Function` prototype and use a concept very similar as the python one:
+We can define a method in the `Function` prototype and use a concept very similar as the Python one:
 
 ```javascript
 Function.prototype.memoize = function(){
@@ -209,8 +209,8 @@ var fibonacci = _.memoize(function(n) {
 });
 ```
 
-Much easier! We define the function once and we don't need to *memozied* it later.
+Much easier! We define the function once, and we don't need to *memoize* it later.
 
 ## What is all this doing here?
 
-Well, if you work on datajournalism you might be doing some scraping and some calculations over ton of data. I think that the **memoization** concept is really useful to optimize some of your tools or scripts. Something to have in mind.
+Well, if you work on data journalism you might be doing some scraping and some calculations on huge data sets. I think that the **memoization** concept is really useful to optimize some of your tools or scripts. Something to have in mind.
