@@ -4,6 +4,9 @@
 @import "base/base";   /* Bitters needs to be imported before Neat */
 @import "neat";
 
+body{
+  margin-bottom: 0px;
+}
 // HEADER
 header.main {
   padding-top: 1em;
@@ -95,6 +98,7 @@ header.main {
 
 footer.footer {
   @include outer-container;
+  border-bottom: 20px solid #DDD;
   .resource {
     margin-bottom: 1em;
     ul li {
