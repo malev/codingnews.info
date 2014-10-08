@@ -1,6 +1,6 @@
 ---
 title: Memoization
-date: 2014-10-08 16:45 UTC
+date: 2014-10-08 10:45 UTC
 tags: programming, ruby, javascript, python
 published: false
 ---
