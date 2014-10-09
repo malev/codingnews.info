@@ -51,15 +51,17 @@ Open `config.rb` and edit the `s3_sync` block:
 
 To find your region code you can check this [table](docs.aws.amazon.com/general/latest/gr/rande.html#s3_region):
 
+```table
 | Region name                          |     Region     |
 |--------------------------------------|---------------:|
-| US Standard                          |  us-west-2     |
-| US West (Oregon) Region              |    us-west-2   |
+| US Standard                          | us-west-2      |
+| US West (Oregon) Region              | us-west-2      |
 | US West (Northern California) Region | us-west-1      |
 | EU (Ireland) Region                  | eu-west-1      |
 | Asia Pacific (Singapore) Region      | ap-southeast-1 |
 | Asia Pacific (Sydney) Region         | ap-southeast-1 |
 | Asia Pacific (Tokyo) Region          | ap-northeast-1 |
 | South America (Sao Paulo) Region     | ap-northeast-1 |
+```
 
 **Done!** We are ready to run: `middleman s3_sync`. There are some aspects that you can tweak from here on. You should read `Middleman::S3Sync`'s documentation [here](https://github.com/fredjean/middleman-s3_sync).
