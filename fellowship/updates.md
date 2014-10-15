@@ -1,5 +1,19 @@
 # Fellowship updates
 
+## 10/15/2014
+
+* Attended to ConDatos http://condatos.org/
+* Published "Where $507 Million in Texas Enterprise Fund Awards Went"
+https://www.texastribune.org/2014/10/3/texas-enterprise-fund-awards/
+* Published "Texas Sees Significant Decline in Rural Land" https://www.texastribune.org/2014/10/14/open-space-texas/
+* Contributed with "Injury Data by Race Goes Uncollected in Texas".
+http://www.texastribune.org/2014/10/10/law-requiring-race-data-ignored/
+* Blog post about DataBootCamp http://codingnews.info/post/databootcamp-con-sabor-a-chile.html
+* Blog post about Memoize http://codingnews.info/post/memoization.html
+* Contributed to "generator-tt-newsapps" https://github.com/texastribune/generator-tt-newsapps
+
+## 10/01/2014
+
 * HacksLabs - Working with the project "Facts Extraction"
 * Help with some graphs for the TT http://www.texastribune.org/2014/09/25/poll-few-texans-use-public-transportation-main-mod/
 * Visualization about rates of uninsured and poverty in Texas http://www.texastribune.org/2014/09/18/interactive-2013-texas-rates-uninsured-and-poverty/
