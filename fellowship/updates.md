@@ -1,5 +1,10 @@
 # Fellowship updates
 
+* PirateBox session at Mozfest
+* Small command line program to convert CSV into tables https://gist.github.com/malev/71fc62ffb5219b15c1b5
+* Working with pollution data at the Texas Tribune
+* Starting to work on a Software to handle large volumes of documents with @pudo https://github.com/OpenNewsLabs/centipede
+
 ## 10/15/2014
 
 * Attended to ConDatos http://condatos.org/

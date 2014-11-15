@@ -8,3 +8,4 @@
 * [Los nuevos becarios Knight-Mozilla incluyen 2 rioplatenses](http://blogs.lanacion.com.ar/data/argentina/los-nuevos-becarios-knight-mozilla-incluyen-2-rioplatenses/) - La Nación - 10/24/2013
 * [Analice.me platform helps journalists automatically analyze thousands of documents](http://ijnet.org/blog/analiceme-platform-helps-journalists-automatically-analyze-thousands-documents) - ijnet - 5/6/2014
 * [Analice.me ayuda a los periodistas a analizar automáticamente miles de documentos](http://ijnet.org/es/blog/analiceme-ayuda-los-periodistas-analizar-automaticamente-miles-de-documentos) - ijnet - 6/4/2014
+* [Analice.me una herramienta de análisis semántico](https://www.youtube.com/watch?list=UUs231K71Bnu5295_x0MB5Pg&v=QEH1Z4_ZKkI) - Visión 7 - 4/28/2014
