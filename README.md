@@ -1,4 +1,7 @@
 codingnews-blog
 ===============
 
-Super cool blog about my experience as a Knight Mozilla Fellow
+Making it work on docker:
+
+    docker build -t codingnews .
+    docker run -p 80:80 -d codingnews
