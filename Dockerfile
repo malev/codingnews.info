@@ -13,4 +13,4 @@ RUN middleman build
 
 EXPOSE 80
 
-CMD ["nginx"]
+#CMD ["nginx"]
