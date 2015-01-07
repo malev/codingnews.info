@@ -1,5 +1,17 @@
 # Fellowship updates
 
+## 01/07/2015
+
+* Nairobi DBootcamp http://nairobi.dbootcamp.org/
+* analice.me public beta
+* Working on the hospitals explorer update
+* Freeling Ruby wrapper https://github.com/malev/freeling-client
+* http://www.texastribune.org/2014/11/26/dentons-fracking-vote-numbers/
+* http://www.texastribune.org/2014/11/16/dupont-plant-where-workers-died-reported-recent-vi/
+* http://www.texastribune.org/2014/11/20/gas-killed-dupont-workers-not-rare-texas/
+
+## 11/12/2014
+
 * PirateBox session at Mozfest
 * Small command line program to convert CSV into tables https://gist.github.com/malev/71fc62ffb5219b15c1b5
 * Working with pollution data at the Texas Tribune
