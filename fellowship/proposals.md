@@ -1,5 +1,14 @@
 # Proposals
 
+## PyData - NYC - 2015
+### Reproducibility of your development environment
+"Reproducible" is not a new word in science, but it can be a surprise for newcomers that they also need to have reproducible software environments. What was working yesterday may not work today, but there is a way to prevent that and that's what we are going to explore. We will take a sneak peek at different open source solutions to help maintain a reproducible, shareable environment. 
+
+#### Abstract
+* I will define a reproducible development environment while getting input from the audience. We will consider programming language, dependencies, services, database engines, and data while coming up with this definition.
+* I will introduce open source solutions and best practices to specify environments. I will talk about conda, virtualenv, pyenv, etc. And I'll describe tools like docker or SaaS solutions to have reproducible environments.
+* I will present tools to publish environments like Anaconda.org and Github.
+
 ## Nicar - 2015
 ### I have an idea, now what do I need to have my news app?
 #### Proposed title
