@@ -1,4 +1,7 @@
 # Bio
+## Bio (2015)
+Marcos Vanetta is a biomedical engineer who is passionate about software and technology. He is an experienced web developer and open source enthusiast. Marcos is an active member of the data journalism community and the lead developer of Mapa76 (aka Analice.me). Last year, he worked for The Texas Tribune as a Knight Mozilla Fellow and now he hacks at Continuum Analytics. You can find him at a rock & roll concert or at your closest hackathon. Follow him @malev or at codingnews.info
+
 ## Bio (fellowship) (es)
 Marcos Vanetta es Ingeniero Biomédico, se desarrolla como Knight Mozilla Fellow en el Texas Tribune, en la ciudad de Austin. Colabora en varios proyectos de Software Libre y participa en las comunidades de Python Argentina y Hacks / Hackers BA. Es el desarrollador principal de Analice.me y se define como un promotor de las tecnologías libres y fanático del Rock and Roll.
 
