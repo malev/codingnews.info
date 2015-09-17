@@ -1,7 +1,21 @@
 # Proposals
+## RubyConf - 2015
+### Title
+Command line applications with Ruby
+### Abstract
+This talk is about sharing tips and tricks for building CLI applications with Ruby. I will be talking about standards and comparing the approach that well-known programs have taken. I’ll explain how to write for Unix or Windows, as well as how to work with input, output, presentation and colors.
+What libraries can you use? Or should you just stick with the standard library? I will provide  examples, lots of examples.
+### Details
+This is a beginners’/ intermediate talk on how to build CLI applications with Ruby. I want to emphasize to the audience that CLI applications can help make their scripts more reusable, potentially saving a lot of work. 
+ I will start by talking about the standard uses for CLI -- such as tools like cat, rbenv or even rails -- and how most common CLI programs behave. Then, my focus will shift to the UI/UX of CLI applications and what users expect in Unix and in Windows. After that I’ll present different libraries that can help with the development of CLI apps, and provide some examples of how those libraries are used.  I hope to encourage the audience to write CLI applications that can help with their day-to-day development.
+### Pitch
+I write CLI applications for a living. I maintain a couple of python libraries that work on the command line, and in my office, we have had many discussions about how to make the UI/UX better. I have several years of experience with Ruby, and I’ve given talks about using it for data journalism at conferences around the world.
+I believe that writing software involves a lot of repetitive tasks and many of them can be improved (or even automated) with better CLI applications. But writing a good, reusable CLI applications requires a lot of work that might scare away inexperienced developers. I hope to teach developers the write tools and standards to write such applications.
 
 ## PyData - NYC - 2015
-### Reproducibility of your development environment
+### Title
+Reproducibility of your development environment
+### Description
 "Reproducible" is not a new word in science, but it can be a surprise for newcomers that they also need to have reproducible software environments. What was working yesterday may not work today, but there is a way to prevent that and that's what we are going to explore. We will take a sneak peek at different open source solutions to help maintain a reproducible, shareable environment. 
 
 #### Abstract
