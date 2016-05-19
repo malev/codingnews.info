@@ -58,5 +58,5 @@ do some math to that delicious column of data:
 df['annual_salary'] = df['Annual Salary'].map(lambda x: float(x.strip('$')))
 ```
 
-The rest of the analysis is nothing but pandas standard and you can check the jupyter notebook [here](#notebook).
-You can also play with it using Binder [here](#binder).
+The rest of the analysis is nothing but pandas standard and you can check the jupyter notebook [here](https://github.com/malev/codingnews.info/blob/master/notebooks/austin_employees.ipynb).
+You can also play with it using Binder [here](http://mybinder.org/repo/malev/codingnews.info) (find it under the notebooks directory).
