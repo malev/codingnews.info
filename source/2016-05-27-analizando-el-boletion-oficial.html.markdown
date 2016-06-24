@@ -1,7 +1,7 @@
 ---
 title: Analizando el Boletín Oficial
 date: 2016-05-27 15:08 UTC
-tags:
+tags: dask, boletin-oficial, argentina, data, datos, python, pydata
 ---
 
 # Analizando el Boletín Oficial
@@ -9,7 +9,9 @@ tags:
 El Boletín Oficial, de acuerdo con Wikipedia,  es "el medio de comunicación
 escrito que el Estado argentino utiliza para publicar sus normas jurídicas
 (tales como leyes, decretos y reglamentos) y otros actos de naturaleza pública,
-tanto del poder legislativo como del ejecutivo y el judicial". Vive en
+tanto del poder legislativo como del ejecutivo y el judicial". Se compone de
+cuatro secciones que se enfocan en normas jurídicas, sociedades, contrataciones
+y dominios de internet respectivamente. Su sitio web es
 [www.boletinoficial.gob.ar](https://www.boletinoficial.gob.ar) y por suerte es
 muy fácil de scrapear.
 
@@ -18,6 +20,9 @@ decretos, resoluciones y disposiciones emanadas de organismos públicos de los
 tres poderes del Estado.
 
 ## Scraping the bad way
+
+**Si te interesa bajar la primera sección, hace click
+[aquí](https://s3-us-west-2.amazonaws.com/data.codingnews.info/output.dat.zip).**
 
 Unos años atras escribí un [post](http://codingnews.info/post/beyond-scrapping.html)
 sobre consejos a la hora de hacer scraping. Hoy **NO** voy a respetar ninguno de
@@ -35,11 +40,11 @@ enviada como parámetro de la llamada.
 
 ![Primer decreto](/images/boletin2.png)
 
-En un segundo paso, podemos hacer click en cualquier decreto o resolución en la
-página y podremos distinguir una llamada a `detallePrimera` que nos devuelve
-entre otras cosas el contenido del Decreto, la fecha, el nombre del archivo
-donde fue publicado y su contenido. Esta va a ser la URL que vamos a usar
-para hacer el scarping:
+Luego, hacemos click en caulquier decreto o resolución de la página. Una vez
+que la página se actualice veremos una llamada a `detallePrimera`, si la
+inspeccionamos veremos entre otras cosas el contenido del Decreto,
+la fecha de publicación, el nombre del archivo con el que fue publicado
+y su contenido. Esta va a ser la URL que vamos a probar con `cURL`:
 
 ```
 $ curl --silent -q --data "numeroTramite=147002" https://www.boletinoficial.gob.ar/norma/detallePrimera
@@ -95,7 +100,7 @@ Y como resultado tendremos:
 }
 ```
 
-Y eso es exactamente lo que queremos! Ahora vamos a usar `seq` y `parallel`
+**Eso es exactamente lo que queremos!** Ahora vamos a usar `seq` y `parallel`
 para bajar los archivos con:
 
 ```
@@ -108,7 +113,7 @@ Esto nos va a generar 40000 archivos JSON que voy a unir con:
 for f in *.json; do (cat "${f}"; echo) >> output.dat; done
 ```
 
-Así tengo un único archivo para bajar de mi servidor: `output.dat`
+Así lograremos un único (`output.dat`) archivo para empezar a jugar.
 
 ## Cargar los datos
 
@@ -153,5 +158,24 @@ sort = sorted(res, key=lambda x: x[1], reverse=True)
 sort[0:10]
 ```
 
+## Top 10 de palabras en la sección primera
+
+```table
+| Palabra   | Frecuencia |
+|-----------|------------|
+| dni       |     213703 |
+| Nº        |      188174|
+| nacional  |      184061|
+| calibre   |      133918|
+| ley       |      114651|
+| decreto   |      112959|
+| presente  |      112024|
+| ministerio|      111594|
+| fecha     |       96887|
+| plg       |       75974|
+```
+
 Sólo a modo de prueba, tengo un notebook con algunos documentos y el código
-de este post [aquí](https://anaconda.org/malev/boletin_1/notebook)
+de este post [aquí](https://github.com/malev/codingnews.info/blob/master/notebooks/boletin.ipynb).
+
+**Nota:** Tengo pensado jugar un poco más con estos datos en futuros posts.
