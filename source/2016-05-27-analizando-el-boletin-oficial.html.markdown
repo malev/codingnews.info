@@ -6,7 +6,7 @@ tags: dask, boletin-oficial, argentina, data, datos, python, pydata
 
 # Analizando el Boletín Oficial
 
-El Boletín Oficial, de acuerdo con Wikipedia,  es "el medio de comunicación
+El Boletín Oficial, según Wikipedia, es "el medio de comunicación
 escrito que el Estado argentino utiliza para publicar sus normas jurídicas
 (tales como leyes, decretos y reglamentos) y otros actos de naturaleza pública,
 tanto del poder legislativo como del ejecutivo y el judicial". Se compone de
@@ -24,7 +24,7 @@ tres poderes del Estado.
 **Si te interesa bajar la primera sección, hace click
 [aquí](https://s3-us-west-2.amazonaws.com/data.codingnews.info/output.dat.zip).**
 
-Unos años atras escribí un [post](http://codingnews.info/post/beyond-scrapping.html)
+Hace unos años atras escribí un [post](http://codingnews.info/post/beyond-scrapping.html)
 sobre consejos a la hora de hacer scraping. Hoy **NO** voy a respetar ninguno de
 esos consejos pues no tengo interes en reproducir este scraping ni nada por el
 estilo.
@@ -34,7 +34,7 @@ tipos de llamadas se hacen desde el sitio.
 
 ![Página principal](/images/boletin1.png)
 
-Fácilmente podemos distinguir una llamada del tipo POST a `secciones.json` que
+Podemos distinguir, fácilmente, una llamada del tipo POST a `secciones.json` que
 devuelve un arreglo con los elementos de la Primera Sección para la fecha
 enviada como parámetro de la llamada.
 
@@ -113,17 +113,18 @@ Esto nos va a generar 40000 archivos JSON que voy a unir con:
 for f in *.json; do (cat "${f}"; echo) >> output.dat; done
 ```
 
-Así lograremos un único (`output.dat`) archivo para empezar a jugar.
+Así logramos un único (`output.dat`) archivo para empezar a jugar.
 
 ## Cargar los datos
 
-Para cargar los datos voy a usar [Dask](http://dask.pydata.org/). Básicamente,
-leo el archivo línea por línea, las parseo con `ujson` y si el resultado
-tiene un elemento llamada `detalleNorma` asumo que es un documento válido. A
-cada documento le extraigo el exto con [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/).
-Paso todo el texto a minúsculas, filtro los componentes que no son palabras,
-las denominadas *stop words* (palabras que no me dan valor) y por último
-cuento la aparición de cada palabra:
+Para cargar los datos usamos [Dask](http://dask.pydata.org/). Básicamente,
+leemos el archivo línea por línea, parseamos con `ujson` y si el resultado
+tiene un elemento llamada `detalleNorma` asumimos que es un documento válido. A
+cada documento le extraemos el exto con
+[BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/).
+Pasamos todo el texto a minúsculas, filtramos los componentes que no son
+palabras, las denominadas *stop words* (palabras que no me dan valor) y por último
+contamos la aparición de cada palabra:
 
 ```python
 import re
@@ -150,8 +151,8 @@ res = bag.map(ujson.loads).map(extract).concat().\
     frequencies().compute()
 ```
 
-Una vez que tengo la frecuencia de cada palabra en todos los documentos de la
-Primera Sección ordeno y muestro las 10 palabras más frecuentes:
+Una vez que tenemos la frecuencia de cada palabra en todos los documentos de la
+Primera Sección ordeno y mostramos las 10 palabras más frecuentes:
 
 ```
 sort = sorted(res, key=lambda x: x[1], reverse=True)
@@ -175,7 +176,7 @@ sort[0:10]
 | plg       |       75974|
 ```
 
-Sólo a modo de prueba, tengo un notebook con algunos documentos y el código
+Sólo a modo de prueba, hay publicado un notebook con algunos documentos y el código
 de este post [aquí](https://github.com/malev/codingnews.info/blob/master/notebooks/boletin.ipynb).
 
 **Nota:** Tengo pensado jugar un poco más con estos datos en futuros posts.
