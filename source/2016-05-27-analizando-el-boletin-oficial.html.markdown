@@ -47,7 +47,8 @@ la fecha de publicación, el nombre del archivo con el que fue publicado
 y su contenido. Esta va a ser la URL que vamos a probar con `cURL`:
 
 ```
-$ curl --silent -q --data "numeroTramite=147002" https://www.boletinoficial.gob.ar/norma/detallePrimera
+$ curl --silent -q --data "numeroTramite=147002" \
+https://www.boletinoficial.gob.ar/norma/detallePrimera
 ```
 
 Y como resultado tendremos:
@@ -60,7 +61,7 @@ Y como resultado tendremos:
     "tipoNorma": "DECRETO",
     "numeroNorma": "Decreto 803",
     "anioNorma": "2016",
-    "detalleNorma": "<!DOCTYPE html PUBLIC \"-\/\/W3C\/\/DTD HTML 4.01 Transitional\/\/EN\"><br \/>\n<br \/>\n    <h3>CORTE SUPREMA DE\u00a0JUSTICIA DE\u00a0LA\u00a0NACI\u00d3N<br \/>\n<\/h3><p xmlns:math=\"http:\/\/exslt.org\/math\"><b>Decreto 803\/2016<\/b><\/p><p><b>N\u00f3mbrase Juez.<br \/>\n<\/b><\/p><p xmlns:math=\"http:\/\/exslt.org\/math\">Bs. As., 22\/06\/2016<br \/>\n<\/p><p xmlns:math=\"http:\/\/exslt.org\/math\">VISTO el acuerdo prestado por el HONORABLE SENADO DE LA NACION y en uso de las facultades que le otorga el art\u00edculo 99, inciso 4) de la CONSTITUCION NACIONAL.<br \/>\n<br \/>\nPor ello,<br \/>\n<br \/>\n<\/p><p xmlns:math=\"http:\/\/exslt.org\/math\">EL PRESIDENTE<br \/>\nDE LA NACION ARGENTINA<br \/>\nDECRETA:<br \/>\n<\/p><p xmlns:math=\"http:\/\/exslt.org\/math\">ART\u00cdCULO 1\u00b0 \u2014 N\u00f3mbrase JUEZ de la CORTE SUPREMA DE JUSTICIA DE LA NACION, al se\u00f1or doctor D. Horacio Daniel ROSATTI (D.N.I. N\u00b0\u00a012.696.450).<br \/>\n<\/p><p xmlns:math=\"http:\/\/exslt.org\/math\">ART\u00cdCULO 2\u00b0 \u2014 Comun\u00edquese, publ\u00edquese, d\u00e9se a la Direcci\u00f3n Nacional del Registro Oficial y arch\u00edvese. \u2014 MACRI. \u2014 Germ\u00e1n C. Garavano.<br \/>\n<\/p>  <br \/>\n",
+    "detalleNorma": "HTML CONTENT",
     "idTramite": "147002",
     "cantidadVisitas": 2135,
     "cantidadVisitasHoy": 2135,
@@ -104,7 +105,9 @@ Y como resultado tendremos:
 para bajar los archivos con:
 
 ```
-seq 100000 1 140000 | parallel -j10 "curl --silent -q --data "numeroTramite={}" https://www.boletinoficial.gob.ar/norma/detallePrimera --output {}.json"
+seq 100000 1 140000 | parallel -j10 \
+"curl --silent -q --data "numeroTramite={}" \
+https://www.boletinoficial.gob.ar/norma/detallePrimera --output {}.json"
 ```
 
 Esto nos va a generar 40000 archivos JSON que voy a unir con:
