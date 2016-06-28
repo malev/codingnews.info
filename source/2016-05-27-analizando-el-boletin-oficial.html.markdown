@@ -133,7 +133,6 @@ contamos la aparición de cada palabra:
 import re
 import ujson
 import dask.bag as db
-import nltk
 from bs4 import BeautifulSoup
 
 
