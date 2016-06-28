@@ -266,7 +266,7 @@ tokens.map(ujson.dumps).to_textfiles('{}.*.dat'.format(filename))
 ```
 
 Esta tarea toma varias horas y como resultado obtendremos algunos archivos
-llamados: file_1.dat.0.dat, output.dat.1.dat, etc. Y su contenido será similiar
+llamados: file_1.dat.0.dat, file_1.dat.1.dat, etc. Y su contenido será similiar
 a:
 
 ```json
@@ -298,7 +298,27 @@ a:
 }
 ```
 
-En próximos posts haremos análisis de los datos obtenidos.
+**Nota:** La estructura con la que organizamos los tokens es muy ineficiente.
+No se es tabular y por lo tanto debe ser convertida en un último paso. Este
+último paso se podría haber omitido con una mejor estructura.
+
+```python
+import ujson
+from dask import bag
+
+def tabulate(data):
+    tokens = []
+    for token in data['tokens']:
+        token['idTramite'] = data['idTramite']
+        tokens.append(token)
+    return tokens
+
+b = bag.read_text('file_1.dat.*.dat').map(ujson.loads).\
+    map(tabulate).concat()
+b.map(ujson.dumps).to_textfiles('tabulated.*.dat')
+```
+
+En próximos posts haremos análisis de los **33.276.028** datos obtenidos.
 
 **Nota:** Publiqué un notebook con el código de ejemplo usado aquí.
 Lamentablemente no se puede ejecutar pues Binder no tiene freeling instalado.
