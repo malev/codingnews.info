@@ -5,23 +5,23 @@ tags: python, pydata, nlp, freeling, dask
 ---
 
 En un [post anterior](/post/analizando-el-boletin-oficial.html) vimos como
-scrapear y extraer el texto de 40000 documentos de la sección primera del
-boletín oficial argentino. Ahora vamos a analizar el texto de cada documento
-para extrayendo sus entidades usando NLP (natural language processing).
+scrapear y extraer el texto de 40.000 documentos de la sección primera del
+boletín oficial argentino. En este post vamos a realizar un análisis de
+*Natural Language Processing* (NLP) en cada uno de esos documentos extraídos.
 
 ## NLP
 
-En este post vamos a realizar un análisis de **Named Entity Classification**
-para detectar sujetos, adjetivos, pronombres y signos de puntuación. Al mismo
-tiempo, y gracias a la herramienta que vamos a usar, vamos a detectar personas,
-lugares geofráficos, organizaciones, verbos y fechas. Todo esto lo vamos a
-hacer con una herramienta llamada [freeling](http://nlp.lsi.upc.edu/freeling/node/1)
-que se desarrolla en la Universitat Politècnica de Catalunya. Lo bueno de esta
-herramienta es que cuenta con modelos para trabajar en Español. Destaco este
-punto por que la mayoría de las herramientas de NLP trabajan en Inglés casi
-exclusivamente.
+De todas las estudios que se pueden hacer con NLP vamos a hacer **Named Entity
+Classification**. Esto nos permitirá detectar verbos, sujetos, adjetivos,
+pronombres y signos de puntuación. Al mismo tiempo, y gracias a la herramienta
+que vamos a usar, vamos a detectar personas, lugares geofráficos,
+organizaciones y fechas. Todo esto lo vamos a hacer con una herramienta
+llamada [freeling](http://nlp.lsi.upc.edu/freeling/node/1) que se desarrolla
+en la Universitat Politècnica de Catalunya. Lo bueno de esta herramienta es
+que cuenta con modelos para trabajar en Español. Destaco este punto porque la
+mayoría de las herramientas de NLP trabajan en Inglés casi exclusivamente.
 
-Vamos a empezar instalando freeling con:
+Empezamos instalando freeling con:
 
 ```
 brew install freeling
@@ -29,7 +29,7 @@ brew install freeling
 
 o, en Ubuntu 14.04:
 
-```
+```bash
 sudo apt-get update -yq
 sudo apt-get install libboost-regex-dev libicu-dev zlib1g-dev -yq
 sudo apt-get install libboost-system-dev libboost-program-options-dev libboost-thread-dev -yq
@@ -47,13 +47,13 @@ configuración:
 
 Luego podemos ejecutar:
 
-```
+```bash
 $ export FREELINGSHARE=/usr/local/Cellar/freeling/4.0/share/freeling/
 $ echo "Hola mundo" | analyzer -f /usr/local/Cellar/freeling/4.0/share/freeling/config/es.cfg
 Hola hola I 1
 mundo mundo NCMS000 1
 ```
-Y como en este caso queremos el módulo `nec` de **named entity classification**,
+Y, como en este caso queremos el módulo `nec` de **named entity classification**,
 tendremos que correr:
 
 
@@ -152,37 +152,44 @@ un poco de entrenamiento en DDHH argentinos. El entrenamiento será un cuento
 para otro día.
 
 Cómo vamos a usar python, vamos a usar un wrapper de freeling para python
-llamado [pyfreeling](https://github.com/malev/pyfreeling) que se usa igual
-que `anlyze`, la herramienta de línea de comandos que viene con freeling.
+llamado [pyfreeling](https://github.com/malev/pyfreeling). Su uso es muy
+similar al uso de `analyze`, la herramienta de línea de comandos que viene
+con freeling.
 
 ## Map reduce
 
-El archivo con con los 40.000 documentos pesa 325M y su estructura es la
-siguiente:
+> Este paso es opcional
+
+El análisis `nec` consume mucha memoria, procesador y, por supuesto, mucho
+tiempo. Una forma simple de acelerar el proceso es usar más de un
+nodo o computadora. Aquí vamos a usar un **map-reduce** manual y vamos a
+dividir el proceso en 2 nodos: uno en DigitalOcean con 32Gb de ram y 12 CPUs y
+el otro, una laptop con 16Gb de ram y un procesador i7 de 3.1GHz.
+
+El archivo con los 40.000 documentos pesa 325M y su estructura es la siguiente:
 
 * Un JSON por línea.
 * Cada JSON es un documento con título, metadata y contenido en HTML.
 
-Dado que el análisis NEC consume mucho procesador, memoria y toma mucho tiempo,
-vamos a dividir el archivo en pedazos así lo podemos trabajar en varios nodos.
-Como nodos vamos a usar mi laptop (i7, 3.1GHz con 16Gb de ram) y una instancia
-en Digital Ocean con 32Gb de ram y 12 CPUs.
+Cómo tenemos un JSON por línea, podemos dividir el archivo por número de líneas:
 
-Para dividir el archivo hacemos:
+
+Dask nos permite paralelizar en multiples nodos,
+pero no vamos a usar ese feature en este post. El propósito es usar 2 nodos,
 
 ```
-split -n 5000 output.dat
+split -n 20000 output.dat
 ```
 
-Esto nos va a dar 8 archivos de 5.000 líneas cada uno. Una vez que termines con
-todo el proceso haremos pondremos todo en un único archivo.
+Ese comando nos va a dar 2 archivos con 20.000 documentos cada uno para usar
+uno en DigitalOcean y el otro en mi laptop.
 
 ## Empezando con dask
 
-Vamos a empezar por leer el 1ro de los ocho archivos del paso anterior. Vamos
-a usar `read_text` para generar un objeto `bag` y vamos a encadenar algunas
-funciones para parsear el JSON, extraer el texto del html, eliminar documentos
-nulos, etc:
+Una vez copiado el archivo en cualquiera de los nodos, podemos leer su
+contenido con `read_text` y generar un objeto `bag` de **Dask**. También
+vamos a encadenar algunas funciones para parsear el JSON, extraer el texto
+del html, eliminar documentos nulos, etc:
 
 ```python
 import ujson
@@ -219,13 +226,13 @@ def remove_nones(data):
     return data is not None
 
 
-bag = db.read_text("output.dat", blocksize=100000000)
+bag = db.read_text("file_1.dat", blocksize=100000000)
 df = bag.map(ujson.loads).map(extract).filter(remove_empty).\
     map(valid_columns).map(extract_text).filter(remove_nones)
 ```
 
-Como detalle interesante, vamos a usar un `blocksize` de 100.000.000 que **Dask**
-organizará en [4 workers similares](/images/dask_workers.png). Para generar esa
+Vamos a usar un `blocksize` de 100.000.000 que **Dask** organizará en
+[4 workers similares](/images/dask_workers.png). Para generar esa
 gráfica usamos: `from dask.dot import dot_graph; dot_graph(df.dask)`.
 
 ## Análisis de entidades
@@ -259,7 +266,7 @@ tokens.map(ujson.dumps).to_textfiles('{}.*.dat'.format(filename))
 ```
 
 Esta tarea toma varias horas y como resultado obtendremos algunos archivos
-llamados: output.dat.0.dat, output.dat.1.dat, etc. Y su contenido será similiar
+llamados: file_1.dat.0.dat, output.dat.1.dat, etc. Y su contenido será similiar
 a:
 
 ```json
