@@ -90,6 +90,11 @@ header.main {
     h4, h5, h6 {
       font-size: $base-font-size;
     }
+    p {
+      code {
+        font-size: 1.4em;
+      }
+    }
   }
   .comments {
     margin: 1em 0;
