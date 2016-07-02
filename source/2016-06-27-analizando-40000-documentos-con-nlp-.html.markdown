@@ -6,20 +6,20 @@ tags: python, pydata, nlp, freeling, dask
 
 En un [post anterior](/post/analizando-el-boletin-oficial.html) vimos como
 scrapear y extraer el texto de 40.000 documentos de la sección primera del
-boletín oficial argentino. En este post vamos a realizar un análisis de
+boletín oficial argentino. En el de hoy, vamos a realizar un análisis de
 *Natural Language Processing* (NLP) en cada uno de esos documentos extraídos.
 
 ## NLP
 
-De todas las estudios que se pueden hacer con NLP vamos a hacer **Named Entity
+De todos las estudios que se pueden hacer con NLP vamos a hacer **Named Entity
 Classification**. Esto nos permitirá detectar verbos, sujetos, adjetivos,
 pronombres y signos de puntuación. Al mismo tiempo, y gracias a la herramienta
-que vamos a usar, vamos a detectar personas, lugares geofráficos,
+que elegida, vamos a detectar personas, lugares geográficos,
 organizaciones y fechas. Todo esto lo vamos a hacer con una herramienta
 llamada [freeling](http://nlp.lsi.upc.edu/freeling/node/1) que se desarrolla
-en la Universitat Politècnica de Catalunya. Lo bueno de esta herramienta es
-que cuenta con modelos para trabajar en Español. Destaco este punto porque la
-mayoría de las herramientas de NLP trabajan en Inglés casi exclusivamente.
+en la Universitat Politècnica de Catalunya y cuenta con modelos para trabajar
+en el idioma Español. Destaco este punto porque la mayoría de las herramientas
+NLP trabajan casi exclusivamente en Inglés.
 
 Empezamos instalando freeling con:
 
@@ -147,14 +147,14 @@ Nuestro output será:
 ```
 
 En este caso el resultado está en formato JSON y tiene un error ya que
-**abuelas** es una organización y no una persona. Claramente el model necesita
+**Abuelas** es una organización y no una persona. Claramente el model necesita
 un poco de entrenamiento en DDHH argentinos. El entrenamiento será un cuento
 para otro día.
 
-Cómo vamos a usar python, vamos a usar un wrapper de freeling para python
-llamado [pyfreeling](https://github.com/malev/pyfreeling). Su uso es muy
-similar al uso de `analyze`, la herramienta de línea de comandos que viene
-con freeling.
+El código será escrito en python, y por ende necesitamos instalar un wrapper
+para freeling llamado [pyfreeling](https://github.com/malev/pyfreeling).
+Su uso es muy similar al uso de `analyze`, la herramienta de línea de comandos
+que viene con freeling.
 
 ## Map reduce
 
@@ -162,8 +162,8 @@ con freeling.
 
 El análisis `nec` consume mucha memoria, procesador y, por supuesto, mucho
 tiempo. Una forma simple de acelerar el proceso es usar más de un
-nodo o computadora. Aquí vamos a usar un **map-reduce** manual y vamos a
-dividir el proceso en 2 nodos: uno en DigitalOcean con 32Gb de ram y 12 CPUs y
+nodo o computadora. Aquí vamos a usar un **map-reduce** manual para dividir
+el proceso en 2 nodos: uno en DigitalOcean con 32Gb de ram y 12 CPUs y
 el otro, una laptop con 16Gb de ram y un procesador i7 de 3.1GHz.
 
 El archivo con los 40.000 documentos pesa 325M y su estructura es la siguiente:
@@ -173,16 +173,15 @@ El archivo con los 40.000 documentos pesa 325M y su estructura es la siguiente:
 
 Cómo tenemos un JSON por línea, podemos dividir el archivo por número de líneas:
 
-
-Dask nos permite paralelizar en multiples nodos,
-pero no vamos a usar ese feature en este post. El propósito es usar 2 nodos,
-
 ```
 split -n 20000 output.dat
 ```
 
-Ese comando nos va a dar 2 archivos con 20.000 documentos cada uno para usar
-uno en DigitalOcean y el otro en mi laptop.
+Dask nos permite paralelizar en multiples nodos,
+pero no vamos a usar ese feature en este post. El propósito es usar 2 nodos,
+
+Ese comando nos va a dar 2 archivos con 20.000 documentos para usar en cada
+nodo.
 
 ## Empezando con dask
 
