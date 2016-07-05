@@ -1,6 +1,6 @@
 ---
 title: Analizando 40.000 documentos con NLP
-date: 2016-06-27 20:49 UTC
+date: 2016-07-05 10:49 UTC
 tags: python, pydata, nlp, freeling, dask
 ---
 
