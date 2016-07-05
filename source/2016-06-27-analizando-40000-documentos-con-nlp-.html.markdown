@@ -318,8 +318,8 @@ b = bag.read_text('file_1.dat.*.dat').map(ujson.loads).\
 b.map(ujson.dumps).to_textfiles('tabulated.*.dat')
 ```
 
-En próximos posts haremos análisis de los **33.276.028** datos obtenidos.
-Los datos obtenidos estan [aquí](https://s3-us-west-2.amazonaws.com/data.codingnews.info/boletin-nlp-freeling.tar.gz).
+En próximos posts haremos análisis de los **33.276.028** datos obtenidos. Y si
+te queres adelantar, los podes bajar [aquí](https://s3-us-west-2.amazonaws.com/data.codingnews.info/boletin-nlp-freeling.tar.gz).
 
 **Nota:** Publiqué un notebook con el código de ejemplo usado aquí.
 Lamentablemente no se puede ejecutar pues Binder no tiene freeling instalado.
