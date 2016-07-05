@@ -31,12 +31,13 @@ o, en Ubuntu 14.04:
 
 ```bash
 sudo apt-get update -yq
-sudo apt-get install libboost-regex-dev libicu-dev zlib1g-dev -yq
-sudo apt-get install libboost-system-dev libboost-program-options-dev libboost-thread-dev -yq
-sudo apt-get install -f
+sudo apt-get install gdebi -yq
+sudo apt-get install libboost-regex-dev libicu-dev zlib1g-dev \
+                     libboost-system-dev libboost-program-options-dev \
+                     libboost-thread-dev -yq
 
 wget https://github.com/TALP-UPC/FreeLing/releases/download/4.0/freeling-4.0-trusty-amd64.deb
-sudo dpkg -i freeling-4.0-trusty-amd64.deb
+sudo gdebi -n freeling-4.0-trusty-amd64.deb
 ```
 
 Para probarlo, necesitamos conocer la ubicación de los archivos de
@@ -318,6 +319,7 @@ b.map(ujson.dumps).to_textfiles('tabulated.*.dat')
 ```
 
 En próximos posts haremos análisis de los **33.276.028** datos obtenidos.
+Los datos obtenidos estan [aquí](https://s3-us-west-2.amazonaws.com/data.codingnews.info/boletin-nlp-freeling.tar.gz).
 
 **Nota:** Publiqué un notebook con el código de ejemplo usado aquí.
 Lamentablemente no se puede ejecutar pues Binder no tiene freeling instalado.
