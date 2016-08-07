@@ -1,12 +1,13 @@
 ---
-title: Boletin oficial analizado con CoreNLP
+title: Boletín oficial analizado con CoreNLP
 date: 2016-08-06 22:49 UTC
 tags:
 ---
 
-En el [post anterior]() analizamos los documentos extraidos del boletín oficial
+En el [post anterior](/post/analizando-40000-documentos-con-nlp-.html)
+analizamos los documentos extraidos del boletín oficial
 con una herramienta llamada Freeling. En este post vamos a repetir el mismo
-análisis, pero usando [CoreNLP](http://stanfordnlp.github.io/CoreNLP/).
+análisis pero usando [CoreNLP](http://stanfordnlp.github.io/CoreNLP/).
 
 CoreNLP es la suite de NLP desarrollada en Stanford. Por suerte para nosotros,
 cuenta con [modelos en Español](http://stanfordnlp.github.io/CoreNLP/index.html#human-languages-supported)
@@ -55,7 +56,7 @@ router.post('/process', processAPI);
 ```
 
 Necesitamos la ubicación de CoreNLP y un archivo de configuración
-`StanfordCoreNLP-spanish.properties` cuyo contenido eso:
+`StanfordCoreNLP-spanish.properties` cuyo contenido es:
 
 ```
 annotators = tokenize, ssplit, pos, ner, regexner
@@ -71,9 +72,10 @@ ner.useSUTime = false
 parse.model = edu/stanford/nlp/models/lexparser/spanishPCFG.ser.gz
 ```
 
-Puse toda la app en un Docker container que se puede encontrar en mi [dockerhub](https://hub.docker.com/r/malev/corenlp/).
+**Nota:** La información al respecto del docker container está en [dockerhub](https://hub.docker.com/r/malev/corenlp/).
+
 Usar un único container puede ser muy limitante, por lo que decidimos lanzar 4
-container y un Nginx actuando como load balancer. El archivo de docker-compose
+containers y un Nginx actuando como *load balancer*. El archivo de docker-compose
 usado es el siguiente:
 
 ```yaml
@@ -88,7 +90,7 @@ services:
     environment:
       PORT: 3001
     restart: always
-#...
+# ... (Repite 3 veces)
 loadbalancer:
     image: nginx
     ports:
@@ -160,13 +162,13 @@ with open(filename) as dfile:
 print("Done!")
 ```
 
-Para acelerar los trámites, podemos partir el archivo en partes y correr el
+Para "acelerar los trámites", podemos partir el archivo en partes y correr el
 script con cada una de ellas en un proceso nuevo:
 
 ```
 split -n 20000 output.dat
 python tokens.py output.0.dat
-# En otra terminarl:
+# En otra terminal:
 python tokens.py output.1.dat
 ```
 
@@ -187,5 +189,9 @@ cat tokens.json | ramda-cli 'omit ["_id"]' -c > tokens_without_id.json
 ```
 
 El código del proyecto se encuentra en [Github](https://github.com/malev/devops/tree/master/corenlp-api)
-y los resultados se pueden bajar de [aquí](http://example.org). Seguiremos
-analizando el Boletín Oficial en futuros posts.
+y los resultados se pueden bajar de [aquí](https://s3-us-west-2.amazonaws.com/data.codingnews.info/tokens-corenlp.tar.gz)
+. Seguiremos analizando el Boletín Oficial en futuros posts.
+
+**Fun Fact:** El archivo exportado por mongodb pesa 7.1Gb. Luego de eliminar
+los ids de todos los documentos logramos reducir el tamaño del archivo a 5.1Gb.
+Victoria!
