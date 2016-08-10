@@ -1,6 +1,6 @@
 ---
 title: Boletín oficial analizado con CoreNLP
-date: 2016-08-06 22:49 UTC
+date: 2016-08-10 22:49 UTC
 tags:
 ---
 
