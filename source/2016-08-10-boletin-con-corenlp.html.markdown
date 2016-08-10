@@ -1,7 +1,7 @@
 ---
 title: Boletín oficial analizado con CoreNLP
 date: 2016-08-10 22:49 UTC
-tags:
+tags: nlp, python, nodejs, data science, data, datos
 ---
 
 En el [post anterior](/post/analizando-40000-documentos-con-nlp-.html)
