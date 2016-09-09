@@ -1,4 +1,8 @@
 # Bio
+
+## Bio (2016)
+I grew up in Salta, a city surrounded by the Andes at the north of Argentina. I am a biomedical engineer and I’m very passionate about software and technology. I consider myself an Open Source enthusiast and a big fan of data journalism. I worked at The Texas Tribune as a Knight Mozilla Fellow and at Continuum Analytics building tools for data science. I like biking, hiking and swimming and to contrast that I enjoy a delicious piece of brisket or an argentinian “tira de asado”.
+
 ## Bio (2015)
 Marcos Vanetta is a biomedical engineer who is passionate about software and technology. He is an experienced web developer and open source enthusiast. Marcos is an active member of the data journalism community and the lead developer of Mapa76 (aka Analice.me). Last year, he worked for The Texas Tribune as a Knight Mozilla Fellow and now he hacks at Continuum Analytics. You can find him at a rock & roll concert or at your closest hackathon. Follow him @malev or at codingnews.info
 
