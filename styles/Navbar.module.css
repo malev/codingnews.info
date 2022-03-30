@@ -1,0 +1,23 @@
+.navbarList {
+  column-gap: 15px;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  list-style: none;
+}
+.navbarItem {
+  font-family: monospace, monospace;
+  margin: 0;
+  text-transform: uppercase;
+}
+.navbarLink {
+  color: #555;
+  text-decoration: none;
+}
+.current {
+  color: #333;
+  text-decoration: none;
+}
+.navbarLink:hover {
+  color: #333;
+}

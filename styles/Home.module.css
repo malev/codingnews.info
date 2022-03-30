@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300&display=swap");
+
+.header {
+  margin: 2em 0;
+}
+
+.header h2 {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  margin-bottom: 0;
+}
+
+.header .news {
+  color: red;
+}
+.header p {
+  font-size: 0.9em;
+}
+.separation {
+  margin: 1em;
+  clear: both;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}
