@@ -1,0 +1,18 @@
+.title {
+  font-size: 1.7rem;
+  font-weight: 300;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  color: #222;
+  line-height: 1.6;
+  text-decoration: none;
+}
+.date {
+  color: #444;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  font-style: italic;
+}
+.row {
+  margin-bottom: 2rem;
+}
