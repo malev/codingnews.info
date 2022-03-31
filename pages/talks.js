@@ -3,10 +3,10 @@ import Link from "next/link";
 export default function Talks() {
   return (
     <>
-      <h2>Hi!</h2>
+      <h3>Hi!</h3>
       <p>
-        My name is Marcos Vanetta and I've been talking about data journalist,
-        coding and stuff, here are my slides:
+        My name is Marcos Vanetta and I've been talking about data journalism,
+        coding and stuff. Here are my slides:
       </p>
       <ul>
         <li>

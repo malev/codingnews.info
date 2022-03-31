@@ -2,6 +2,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../styles/Navbar.module.css";
 
+import {
+  faGithub,
+  faTwitter,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 function NavbarItem({ path, name }) {
   const router = useRouter();
 
@@ -24,6 +31,23 @@ export default function Navbar() {
         <NavbarItem path="/" name="Home" />
         <NavbarItem path="/about" name="About" />
         <NavbarItem path="/talks" name="Talks" />
+      </ul>
+      <ul className={styles.navbarList}>
+        <li>
+          <a href="https://twitter.com/malev">
+            <FontAwesomeIcon icon={faTwitter} />
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/malev">
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/marcosvanetta/">
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
+        </li>
       </ul>
     </nav>
   );

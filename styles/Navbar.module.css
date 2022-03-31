@@ -1,8 +1,13 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
 .navbarList {
   column-gap: 15px;
   display: flex;
   justify-content: flex-start;
   margin: 0;
+  margin-right: 1em;
   list-style: none;
 }
 .navbarItem {
@@ -15,7 +20,7 @@
   text-decoration: none;
 }
 .current {
-  color: #333;
+  color: #111;
   text-decoration: none;
 }
 .navbarLink:hover {
