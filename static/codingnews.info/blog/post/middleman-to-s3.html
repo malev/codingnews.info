@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Coding News - Deploy Middleman into S3</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+
+    <meta name="author" content="Marcos Vanetta">
+    <meta name="description" content="Blog about my experiences as a Knight Mozilla Fellow">
+    <meta name="keywords" content="DDJ, Texas, open data, open source, ruby, python, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/stylesheets/all.css">
+    <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .c, .highlight .cd {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .kc {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kd {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kv {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .mf {
+  color: #009999;
+}
+.highlight .mh {
+  color: #009999;
+}
+.highlight .il {
+  color: #009999;
+}
+.highlight .mi {
+  color: #009999;
+}
+.highlight .mo {
+  color: #009999;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #009999;
+}
+.highlight .sb {
+  color: #d14;
+}
+.highlight .sc {
+  color: #d14;
+}
+.highlight .sd {
+  color: #d14;
+}
+.highlight .s2 {
+  color: #d14;
+}
+.highlight .se {
+  color: #d14;
+}
+.highlight .sh {
+  color: #d14;
+}
+.highlight .si {
+  color: #d14;
+}
+.highlight .sx {
+  color: #d14;
+}
+.highlight .sr {
+  color: #009926;
+}
+.highlight .s1 {
+  color: #d14;
+}
+.highlight .ss {
+  color: #990073;
+}
+.highlight .s {
+  color: #d14;
+}
+.highlight .na {
+  color: #008080;
+}
+.highlight .bp {
+  color: #999999;
+}
+.highlight .nb {
+  color: #0086B3;
+}
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #008080;
+}
+.highlight .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #800080;
+}
+.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #555555;
+}
+.highlight .nt {
+  color: #000080;
+}
+.highlight .vc {
+  color: #008080;
+}
+.highlight .vg {
+  color: #008080;
+}
+.highlight .vi {
+  color: #008080;
+}
+.highlight .nv {
+  color: #008080;
+}
+.highlight .ow {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .o {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #bbbbbb;
+}
+.highlight {
+  background-color: #f8f8f8;
+}
+    .highlight {
+      background-color: #FFF;
+    }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header class="main">
+      <div class="title">
+        <a href="http://codingnews.info/"><h2>CODING<strong>NEWS</strong></h2></a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/talks.html">Talks</a></li>
+          <li><a href="http://twitter.com/malev"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="http://github.com/malev"><i class="fa fa-github-alt"></i></a></li>
+          <li><a href="http://ar.linkedin.com/in/marcosvanetta"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+      <img src="/images/100_0855.JPG" id="main-image">
+    </header>
+    <div class="main-container">
+        <header class="article">
+          <h2>Deploy Middleman into S3</h2>
+          <span class="date">
+            Sep 18
+          </span>
+        </header>
+        <article class="post">
+          <p>Hello! If you are reading this blog, then you are reading a blog generated with <a href="middlemanapp.com">Middleman</a>. Yet another static site generator! But <strong>I like this one</strong>. Thanks to the community behind it, there are plenty of <a href="http://directory.middlemanapp.com/#/extensions/all">extensions</a> around there and if you come from the Rails world, you&rsquo;ll find amazing with the <a href="http://middlemanapp.com/basics/asset-pipeline/">Asset Pipeline</a>. Ok, ok, enought. <strong>Let&rsquo;s deploy it into S3!</strong></p>
+
+<p>We will need a <strong>middleman</strong> app. We are going to use <a href="https://github.com/hhba/asistencia-victima">asistencia-victima</a>. Just clone it and then run:</p>
+<pre><code class="highlight plaintext">git clone https://github.com/hhba/asistencia-victima.git
+cd asistencia-victima
+</code></pre>
+
+<p>We will need to install a gem called <a href="https://github.com/fredjean/middleman-s3_sync">middleman-s3_sync</a>. So just add it on your <code>Gemfile</code> (don&rsquo;t need in this case because it&rsquo;s already there). Then just run:</p>
+<pre><code class="highlight plaintext">bundle
+middleman build
+</code></pre>
+
+<p>And we will have a <code>build</code> directory with the files ready for S3.</p>
+
+<h2>S3 Configuration</h2>
+
+<p>Go to your <a href="https://console.aws.amazon.com/s3/home">S3</a> Web Service. Create a new bucket and grab its name and region. You will also need to change some permissions. Select your brand new bucket and click on properties. Open the permissions accordion and add a new grantee: <strong>Everyone</strong> with <strong>List</strong> permissions.  You will need to edit your bucket policy and leave it like:</p>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+    </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Sid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AddPerm"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Principal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s3:GetObject"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arn:aws:s3:::PUTHEREYOURBUCKETNAME/*"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Note: Don&rsquo;t forget to set your bucket name on the snippet.</p>
+
+<p>Finally, open the <strong>Static Website Hosting</strong> accordion. Select <strong>Enable website hosting</strong> and point your <strong>Index Document</strong> to <code>index.html</code> and <strong>Error Document</strong> to <code>404.html</code>. Save and let&rsquo;s go back to the code!</p>
+
+<p>Open <code>config.rb</code> and edit the <code>s3_sync</code> block:</p>
+<pre><code class="highlight plaintext">activate :s3_sync do |s3_sync|
+  s3_sync.bucket = 'YOURBUCKETNAME'
+  s3_sync.region = 'YOURBUCKETREGION'
+  s3_sync.aws_access_key_id = 'AWS_ACCESS_KEY_ID'
+  s3_sync.aws_secret_access_key = 'AWS_SECRET_ACCESS_KEY'
+end
+</code></pre>
+
+<p>To find your region code you can check this <a href="docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">table</a>:</p>
+<pre><code class="highlight plaintext">| Region name                          |     Region     |
+|--------------------------------------|---------------:|
+| US Standard                          | us-west-2      |
+| US West (Oregon) Region              | us-west-2      |
+| US West (Northern California) Region | us-west-1      |
+| EU (Ireland) Region                  | eu-west-1      |
+| Asia Pacific (Singapore) Region      | ap-southeast-1 |
+| Asia Pacific (Sydney) Region         | ap-southeast-1 |
+| Asia Pacific (Tokyo) Region          | ap-northeast-1 |
+| South America (Sao Paulo) Region     | ap-northeast-1 |
+</code></pre>
+
+<p><strong>Done!</strong> We are ready to run: <code>middleman s3_sync</code>. There are some aspects that you can tweak from here on. You should read <code>Middleman::S3Sync</code>&rsquo;s documentation <a href="https://github.com/fredjean/middleman-s3_sync">here</a>.</p>
+
+        </article>
+        <footer>
+          <b>Tags:</b>
+          <a href="/tags/ruby.html">ruby</a>, <a href="/tags/programming.html">programming</a>, <a href="/tags/hacking.html">hacking</a>
+        </footer>
+        <div class="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'codingnews'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer class="footer">
+      <div class="resource">
+        <label>Tags</label>
+        <ul class="tags">
+          <li><a href="/tags/scrapping.html">Scrapping (1)</a></li>
+          <li><a href="/tags/dev.html">Dev (1)</a></li>
+          <li><a href="/tags/random.html">Random (1)</a></li>
+          <li><a href="/tags/programming.html">Programming (6)</a></li>
+          <li><a href="/tags/analysis.html">Analysis (2)</a></li>
+          <li><a href="/tags/python.html">Python (5)</a></li>
+          <li><a href="/tags/opensource.html">Opensource (2)</a></li>
+          <li><a href="/tags/ruby.html">Ruby (3)</a></li>
+          <li><a href="/tags/hacking.html">Hacking (1)</a></li>
+          <li><a href="/tags/conferences.html">Conferences (3)</a></li>
+          <li><a href="/tags/community.html">Community (4)</a></li>
+          <li><a href="/tags/open-hardware.html">Open Hardware (2)</a></li>
+          <li><a href="/tags/opennews.html">Opennews (1)</a></li>
+          <li><a href="/tags/community.html">Community (3)</a></li>
+          <li><a href="/tags/piratebox.html">Piratebox (2)</a></li>
+          <li><a href="/tags/open-internet.html">Open Internet (2)</a></li>
+          <li><a href="/tags/share.html">Share (2)</a></li>
+          <li><a href="/tags/hacking.html">Hacking (1)</a></li>
+          <li><a href="/tags/databootcamp.html">Data Boot Camp (1)</a></li>
+          <li><a href="/tags/workshop.html">Workshop (1)</a></li>
+          <li><a href="/tags/javascript.html">Javascript (1)</a></li>
+          <li><a href="/tags/opensource.html">Opensource (1)</a></li>
+          <li><a href="/tags/open-data.html">Open Data (1)</a></li>
+          <li><a href="/tags/pandas.html">Pandas (1)</a></li>
+          <li><a href="/tags/dask.html">Dask (2)</a></li>
+          <li><a href="/tags/boletin-oficial.html">Boletin Oficial (1)</a></li>
+          <li><a href="/tags/argentina.html">Argentina (1)</a></li>
+          <li><a href="/tags/data.html">Data (2)</a></li>
+          <li><a href="/tags/datos.html">Datos (2)</a></li>
+          <li><a href="/tags/pydata.html">Pydata (2)</a></li>
+          <li><a href="/tags/nlp.html">Nlp (2)</a></li>
+          <li><a href="/tags/freeling.html">Freeling (1)</a></li>
+          <li><a href="/tags/nodejs.html">Nodejs (1)</a></li>
+          <li><a href="/tags/data-science.html">Data Science (1)</a></li>
+        </ul>
+      </div>
+      <div class="resource">
+        <label>Resources</label>
+        <ul class="links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#projects">Projects</a></li>
+          <li><a href="/talks.html">Talks</a></li>
+          <li><a href="/feed.xml">Feed</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-29516046-2');ga('send','pageview');
+    </script>
+    <script type="text/javascript">
+      var images = ['berlin.png', 'brussels.png', 'rosario.png', 'austin.png'],
+          element = document.getElementById('main-image'),
+          img;
+      img = images[Math.floor(Math.random() * images.length)];
+
+      element.setAttribute('src', '/images/' + img);
+    </script>
+  </body>
+</html>

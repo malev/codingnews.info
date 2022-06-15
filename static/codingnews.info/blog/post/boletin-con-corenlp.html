@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Coding News - Boletín oficial analizado con CoreNLP</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+
+    <meta name="author" content="Marcos Vanetta">
+    <meta name="description" content="Blog about my experiences as a Knight Mozilla Fellow">
+    <meta name="keywords" content="DDJ, Texas, open data, open source, ruby, python, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/stylesheets/all.css">
+    <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .c, .highlight .cd {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .kc {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kd {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kv {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .mf {
+  color: #009999;
+}
+.highlight .mh {
+  color: #009999;
+}
+.highlight .il {
+  color: #009999;
+}
+.highlight .mi {
+  color: #009999;
+}
+.highlight .mo {
+  color: #009999;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #009999;
+}
+.highlight .sb {
+  color: #d14;
+}
+.highlight .sc {
+  color: #d14;
+}
+.highlight .sd {
+  color: #d14;
+}
+.highlight .s2 {
+  color: #d14;
+}
+.highlight .se {
+  color: #d14;
+}
+.highlight .sh {
+  color: #d14;
+}
+.highlight .si {
+  color: #d14;
+}
+.highlight .sx {
+  color: #d14;
+}
+.highlight .sr {
+  color: #009926;
+}
+.highlight .s1 {
+  color: #d14;
+}
+.highlight .ss {
+  color: #990073;
+}
+.highlight .s {
+  color: #d14;
+}
+.highlight .na {
+  color: #008080;
+}
+.highlight .bp {
+  color: #999999;
+}
+.highlight .nb {
+  color: #0086B3;
+}
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #008080;
+}
+.highlight .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #800080;
+}
+.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #555555;
+}
+.highlight .nt {
+  color: #000080;
+}
+.highlight .vc {
+  color: #008080;
+}
+.highlight .vg {
+  color: #008080;
+}
+.highlight .vi {
+  color: #008080;
+}
+.highlight .nv {
+  color: #008080;
+}
+.highlight .ow {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .o {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #bbbbbb;
+}
+.highlight {
+  background-color: #f8f8f8;
+}
+    .highlight {
+      background-color: #FFF;
+    }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header class="main">
+      <div class="title">
+        <a href="http://codingnews.info/"><h2>CODING<strong>NEWS</strong></h2></a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/talks.html">Talks</a></li>
+          <li><a href="http://twitter.com/malev"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="http://github.com/malev"><i class="fa fa-github-alt"></i></a></li>
+          <li><a href="http://ar.linkedin.com/in/marcosvanetta"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+      <img src="/images/100_0855.JPG" id="main-image">
+    </header>
+    <div class="main-container">
+        <header class="article">
+          <h2>Boletín oficial analizado con CoreNLP</h2>
+          <span class="date">
+            Aug 10
+          </span>
+        </header>
+        <article class="post">
+          <p>En el <a href="/post/analizando-40000-documentos-con-nlp-.html">post anterior</a>
+analizamos los documentos extraidos del boletín oficial
+con una herramienta llamada Freeling. En este post vamos a repetir el mismo
+análisis pero usando <a href="http://stanfordnlp.github.io/CoreNLP/">CoreNLP</a>.</p>
+
+<p>CoreNLP es la suite de NLP desarrollada en Stanford. Por suerte para nosotros,
+cuenta con <a href="http://stanfordnlp.github.io/CoreNLP/index.html#human-languages-supported">modelos en Español</a>
+que si bien no son de lo más completos, nos van a permitir experimentar un
+poco.</p>
+
+<h2>Instalación</h2>
+
+<p>CoreNLP esta basado en Java (versión 8), es decir que vamos a necesitar tener
+Java instalado. Luego bajamos CoreNLP del <a href="http://stanfordnlp.github.io/CoreNLP/index.html#download">sitio de descargas</a>
+y bajamos los archivos de los modelos en Español de la misma página.</p>
+
+<p>CoreNLP cuenta con una API RESTful, pero no es muy fácil de usar por lo que
+aquí vamos a usar un wrapper basado en NodeJS. Podemos encontrar el wrapper
+<a href="https://github.com/hiteshjoshi/node-stanford-corenlp">aquí</a>. La API va a ser
+una simple app basada en ExpressJS. Los principales snippets (recortes)
+estan aquí:</p>
+<pre><code class="highlight javascript"><span class="c1">//...</span>
+<span class="kd">var</span> <span class="nx">NLPconfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">nlpPath</span><span class="p">:</span> <span class="nx">nlpPath</span><span class="p">,</span>
+  <span class="na">version</span><span class="p">:</span> <span class="s1">'3.6.0'</span><span class="p">,</span>
+  <span class="na">annotators</span><span class="p">:</span> <span class="p">[</span><span class="s1">'tokenize'</span><span class="p">,</span> <span class="s1">'lemma'</span><span class="p">,</span> <span class="s1">'ner'</span><span class="p">,</span> <span class="s1">'parse'</span><span class="p">],</span>
+  <span class="na">language</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">jar</span><span class="p">:</span> <span class="nx">nlpPath</span> <span class="o">+</span> <span class="s1">'/stanford-spanish-corenlp-2015-10-14-models.jar'</span><span class="p">,</span>
+    <span class="na">properties</span><span class="p">:</span> <span class="s1">'StanfordCoreNLP-spanish.properties'</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+<span class="c1">//..</span>
+<span class="kd">var</span> <span class="nx">sendJSONresponse</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">content</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">status</span><span class="p">);</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">processAPI</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">txt</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">txt</span> <span class="o">||</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Processing:'</span><span class="p">,</span> <span class="nx">txt</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">coreNLP</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="nx">txt</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sendJSONresponse</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/process'</span><span class="p">,</span> <span class="nx">processAPI</span><span class="p">);</span>
+<span class="c1">//...</span>
+</code></pre>
+
+<p>Necesitamos la ubicación de CoreNLP y un archivo de configuración
+<code>StanfordCoreNLP-spanish.properties</code> cuyo contenido es:</p>
+<pre><code class="highlight plaintext">annotators = tokenize, ssplit, pos, ner, regexner
+
+tokenize.language = es
+
+pos.model = edu/stanford/nlp/models/pos-tagger/spanish/spanish-distsim.tagger
+
+ner.model = edu/stanford/nlp/models/ner/spanish.ancora.distsim.s512.crf.ser.gz
+ner.applyNumericClassifiers = false
+ner.useSUTime = false
+
+parse.model = edu/stanford/nlp/models/lexparser/spanishPCFG.ser.gz
+</code></pre>
+
+<p><strong>Nota:</strong> La información al respecto del docker container está en <a href="https://hub.docker.com/r/malev/corenlp/">dockerhub</a>.</p>
+
+<p>Usar un único container puede ser muy limitante, por lo que decidimos lanzar 4
+containers y un Nginx actuando como <em>load balancer</em>. El archivo de docker-compose
+usado es el siguiente:</p>
+<pre><code class="highlight yaml"><span class="s">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2'</span>
+<span class="s">services</span><span class="pi">:</span>
+  <span class="s">app1</span><span class="pi">:</span>
+    <span class="s">build</span><span class="pi">:</span> <span class="s">.</span>
+    <span class="s">image</span><span class="pi">:</span> <span class="s">malev/corenlp</span>
+    <span class="s">hostname</span><span class="pi">:</span> <span class="s">app1</span>
+    <span class="s">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">3001:3001</span>
+    <span class="s">environment</span><span class="pi">:</span>
+      <span class="s">PORT</span><span class="pi">:</span> <span class="s">3001</span>
+    <span class="s">restart</span><span class="pi">:</span> <span class="s">always</span>
+<span class="c1"># ... (Repite 3 veces)</span>
+<span class="s">loadbalancer</span><span class="pi">:</span>
+    <span class="s">image</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="s">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">8080:80</span>
+    <span class="s">volumes</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">./corenlp.conf:/etc/nginx/conf.d/default.conf:ro</span>
+</code></pre>
+
+<h2>Analizando documentos</h2>
+
+<p>Desde el otro lado, vamos a usar un simple script python para enviar uno a uno
+los documentos del boletín oficial y vamos a almacenar los resultados en una
+base de datos Mongo.</p>
+<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">()</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">corenlp</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">corenlp_url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'CORENLP_URL'</span><span class="p">,</span> <span class="s">'localhost:8080'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Working with {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">get_tokens</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="s">"http://{}/api/process"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">corenlp_url</span><span class="p">),</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">'txt'</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s">'parsedText'</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)}</span>
+    <span class="p">)</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">payload</span><span class="p">[</span><span class="s">'document'</span><span class="p">][</span><span class="s">'sentences'</span><span class="p">][</span><span class="s">'sentence'</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">[</span><span class="s">'tokens'</span><span class="p">][</span><span class="s">'token'</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
+                <span class="n">token</span><span class="p">[</span><span class="s">'idTramite'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'idTramite'</span><span class="p">]</span>
+                <span class="n">token</span><span class="p">[</span><span class="s">'sentenceId'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[</span><span class="s">'$'</span><span class="p">][</span><span class="s">'id'</span><span class="p">]</span>
+                <span class="n">token</span><span class="p">[</span><span class="s">'tokenId'</span><span class="p">]</span> <span class="o">=</span> <span class="n">token</span><span class="p">[</span><span class="s">'$'</span><span class="p">][</span><span class="s">'id'</span><span class="p">]</span>
+                <span class="k">del</span> <span class="n">token</span><span class="p">[</span><span class="s">'$'</span><span class="p">]</span>
+                <span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tokens</span>
+
+
+<span class="k">def</span> <span class="nf">already_in_db</span><span class="p">(</span><span class="n">id_tramite</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">db</span><span class="o">.</span><span class="n">tokens</span><span class="o">.</span><span class="n">find_one</span><span class="p">({</span><span class="s">'idTramite'</span><span class="p">:</span> <span class="n">id_tramite</span><span class="p">})</span>
+
+
+<span class="k">def</span> <span class="nf">store_tokens</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">tokens</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">dfile</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">dfile</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">already_in_db</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'idTramite'</span><span class="p">]):</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">"Working on {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'idTramite'</span><span class="p">]))</span>
+                <span class="n">store_tokens</span><span class="p">(</span><span class="n">get_tokens</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="k">except</span> <span class="nb">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Error in {}. {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'idTramite'</span><span class="p">],</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">))</span>
+            <span class="k">continue</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Done!"</span><span class="p">)</span>
+</code></pre>
+
+<p>Para &ldquo;acelerar los trámites&rdquo;, podemos partir el archivo en partes y correr el
+script con cada una de ellas en un proceso nuevo:</p>
+<pre><code class="highlight plaintext">split -n 20000 output.dat
+python tokens.py output.0.dat
+# En otra terminal:
+python tokens.py output.1.dat
+</code></pre>
+
+<p>Y a esperar. La verdad que CoreNLP resultó ser muy lento. Al menos con la
+configuración que usamos aquí. Una vez que terminó de procesar todo podemos
+exportar los datos con:</p>
+<pre><code class="highlight plaintext">mongoexport --db corenlp --collection tokens --out tokens.json
+</code></pre>
+
+<p>El problema de <code>mongoexport</code> es que va a incluir el <code>_id</code> que es específico de
+mongo e innecesario ara nosotros. Lo vamos a eliminar usando <a href="https://github.com/raine/ramda-cli">ramda-cli</a>:</p>
+<pre><code class="highlight plaintext">npm install -g ramda-cli
+cat tokens.json | ramda-cli 'omit ["_id"]' -c &gt; tokens_without_id.json
+</code></pre>
+
+<p>El código del proyecto se encuentra en <a href="https://github.com/malev/devops/tree/master/corenlp-api">Github</a>
+y los resultados se pueden bajar de <a href="https://s3-us-west-2.amazonaws.com/data.codingnews.info/tokens-corenlp.tar.gz">aquí</a>
+. Seguiremos analizando el Boletín Oficial en futuros posts.</p>
+
+<p><strong>Fun Fact:</strong> El archivo exportado por mongodb pesa 7.1Gb. Luego de eliminar
+los ids de todos los documentos logramos reducir el tamaño del archivo a 5.1Gb.
+Victoria!</p>
+
+        </article>
+        <footer>
+          <b>Tags:</b>
+          <a href="/tags/nlp.html">nlp</a>, <a href="/tags/python.html">python</a>, <a href="/tags/nodejs.html">nodejs</a>, <a href="/tags/data-science.html">data science</a>, <a href="/tags/data.html">data</a>, <a href="/tags/datos.html">datos</a>
+        </footer>
+        <div class="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'codingnews'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer class="footer">
+      <div class="resource">
+        <label>Tags</label>
+        <ul class="tags">
+          <li><a href="/tags/scrapping.html">Scrapping (1)</a></li>
+          <li><a href="/tags/dev.html">Dev (1)</a></li>
+          <li><a href="/tags/random.html">Random (1)</a></li>
+          <li><a href="/tags/programming.html">Programming (6)</a></li>
+          <li><a href="/tags/analysis.html">Analysis (2)</a></li>
+          <li><a href="/tags/python.html">Python (5)</a></li>
+          <li><a href="/tags/opensource.html">Opensource (2)</a></li>
+          <li><a href="/tags/ruby.html">Ruby (3)</a></li>
+          <li><a href="/tags/hacking.html">Hacking (1)</a></li>
+          <li><a href="/tags/conferences.html">Conferences (3)</a></li>
+          <li><a href="/tags/community.html">Community (4)</a></li>
+          <li><a href="/tags/open-hardware.html">Open Hardware (2)</a></li>
+          <li><a href="/tags/opennews.html">Opennews (1)</a></li>
+          <li><a href="/tags/community.html">Community (3)</a></li>
+          <li><a href="/tags/piratebox.html">Piratebox (2)</a></li>
+          <li><a href="/tags/open-internet.html">Open Internet (2)</a></li>
+          <li><a href="/tags/share.html">Share (2)</a></li>
+          <li><a href="/tags/hacking.html">Hacking (1)</a></li>
+          <li><a href="/tags/databootcamp.html">Data Boot Camp (1)</a></li>
+          <li><a href="/tags/workshop.html">Workshop (1)</a></li>
+          <li><a href="/tags/javascript.html">Javascript (1)</a></li>
+          <li><a href="/tags/opensource.html">Opensource (1)</a></li>
+          <li><a href="/tags/open-data.html">Open Data (1)</a></li>
+          <li><a href="/tags/pandas.html">Pandas (1)</a></li>
+          <li><a href="/tags/dask.html">Dask (2)</a></li>
+          <li><a href="/tags/boletin-oficial.html">Boletin Oficial (1)</a></li>
+          <li><a href="/tags/argentina.html">Argentina (1)</a></li>
+          <li><a href="/tags/data.html">Data (2)</a></li>
+          <li><a href="/tags/datos.html">Datos (2)</a></li>
+          <li><a href="/tags/pydata.html">Pydata (2)</a></li>
+          <li><a href="/tags/nlp.html">Nlp (2)</a></li>
+          <li><a href="/tags/freeling.html">Freeling (1)</a></li>
+          <li><a href="/tags/nodejs.html">Nodejs (1)</a></li>
+          <li><a href="/tags/data-science.html">Data Science (1)</a></li>
+        </ul>
+      </div>
+      <div class="resource">
+        <label>Resources</label>
+        <ul class="links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#projects">Projects</a></li>
+          <li><a href="/talks.html">Talks</a></li>
+          <li><a href="/feed.xml">Feed</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-29516046-2');ga('send','pageview');
+    </script>
+    <script type="text/javascript">
+      var images = ['berlin.png', 'brussels.png', 'rosario.png', 'austin.png'],
+          element = document.getElementById('main-image'),
+          img;
+      img = images[Math.floor(Math.random() * images.length)];
+
+      element.setAttribute('src', '/images/' + img);
+    </script>
+  </body>
+</html>

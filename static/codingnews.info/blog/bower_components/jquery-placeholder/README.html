@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Coding News</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+
+    <meta name="author" content="Marcos Vanetta">
+    <meta name="description" content="Blog about my experiences as a Knight Mozilla Fellow">
+    <meta name="keywords" content="DDJ, Texas, open data, open source, ruby, python, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/stylesheets/all.css">
+    <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .c, .highlight .cd {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .kc {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kd {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kv {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .mf {
+  color: #009999;
+}
+.highlight .mh {
+  color: #009999;
+}
+.highlight .il {
+  color: #009999;
+}
+.highlight .mi {
+  color: #009999;
+}
+.highlight .mo {
+  color: #009999;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #009999;
+}
+.highlight .sb {
+  color: #d14;
+}
+.highlight .sc {
+  color: #d14;
+}
+.highlight .sd {
+  color: #d14;
+}
+.highlight .s2 {
+  color: #d14;
+}
+.highlight .se {
+  color: #d14;
+}
+.highlight .sh {
+  color: #d14;
+}
+.highlight .si {
+  color: #d14;
+}
+.highlight .sx {
+  color: #d14;
+}
+.highlight .sr {
+  color: #009926;
+}
+.highlight .s1 {
+  color: #d14;
+}
+.highlight .ss {
+  color: #990073;
+}
+.highlight .s {
+  color: #d14;
+}
+.highlight .na {
+  color: #008080;
+}
+.highlight .bp {
+  color: #999999;
+}
+.highlight .nb {
+  color: #0086B3;
+}
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #008080;
+}
+.highlight .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #800080;
+}
+.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #555555;
+}
+.highlight .nt {
+  color: #000080;
+}
+.highlight .vc {
+  color: #008080;
+}
+.highlight .vg {
+  color: #008080;
+}
+.highlight .vi {
+  color: #008080;
+}
+.highlight .nv {
+  color: #008080;
+}
+.highlight .ow {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .o {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #bbbbbb;
+}
+.highlight {
+  background-color: #f8f8f8;
+}
+    .highlight {
+      background-color: #FFF;
+    }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header class="main">
+      <div class="title">
+        <a href="http://codingnews.info/"><h2>CODING<strong>NEWS</strong></h2></a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/talks.html">Talks</a></li>
+          <li><a href="http://twitter.com/malev"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="http://github.com/malev"><i class="fa fa-github-alt"></i></a></li>
+          <li><a href="http://ar.linkedin.com/in/marcosvanetta"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+      <img src="/images/100_0855.JPG" id="main-image">
+    </header>
+    <div class="main-container">
+        <h1>HTML5 Placeholder jQuery Plugin</h1>
+
+<h2>Demo &amp; Examples</h2>
+
+<p><a href="http://mathiasbynens.be/demo/placeholder">http://mathiasbynens.be/demo/placeholder</a></p>
+
+<h2>Example Usage</h2>
+
+<h3>HTML</h3>
+<pre><code class="highlight html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">placeholder=</span><span class="s">"e.g. John Doe"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">name=</span><span class="s">"email"</span> <span class="na">placeholder=</span><span class="s">"e.g. address@example.ext"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"url"</span> <span class="na">name=</span><span class="s">"url"</span> <span class="na">placeholder=</span><span class="s">"e.g. http://mathiasbynens.be/"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"tel"</span> <span class="na">name=</span><span class="s">"tel"</span> <span class="na">placeholder=</span><span class="s">"e.g. +32 472 77 69 88"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">name=</span><span class="s">"password"</span> <span class="na">placeholder=</span><span class="s">"e.g. h4x0rpr00fz"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">name=</span><span class="s">"search"</span> <span class="na">placeholder=</span><span class="s">"Search this site…"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">"message"</span> <span class="na">placeholder=</span><span class="s">"Your message goes here"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+</code></pre>
+
+<h3>jQuery</h3>
+
+<p>Use the plugin as follows:</p>
+<pre><code class="highlight javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">'input, textarea'</span><span class="p">).</span><span class="nx">placeholder</span><span class="p">();</span>
+</code></pre>
+
+<p>You’ll still be able to use <code>jQuery#val()</code> to get and set the input values. If the element is currently showing a placeholder, <code>.val()</code> will return an empty string instead of the placeholder text, just like it does in browsers with a native <code>@placeholder</code> implementation. Calling <code>.val(&#39;&#39;)</code> to set an element’s value to the empty string will result in the placeholder text (re)appearing.</p>
+
+<h3>CSS</h3>
+
+<p>The plugin automatically adds <code>class=&quot;placeholder&quot;</code> to the elements who are currently showing their placeholder text. You can use this to style placeholder text differently:</p>
+<pre><code class="highlight css"><span class="nt">input</span><span class="o">,</span> <span class="nt">textarea</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.placeholder</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="m">#aaa</span><span class="p">;</span> <span class="p">}</span>
+</code></pre>
+
+<p>I’d suggest sticking to the <code>#aaa</code> color for placeholder text, as it’s the default in most browsers that support <code>@placeholder</code>. If you really want to, though, you can <a href="http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css/2610741#2610741">style the placeholder text in some of the browsers that natively support it</a>.</p>
+
+<h2>Installation</h2>
+
+<p>You can install jquery-placeholder by using <a href="http://bower.io">Bower</a>.</p>
+<pre><code class="highlight shell">bower install jquery-placeholder
+</code></pre>
+
+<h2>Notes</h2>
+
+<ul>
+<li>Requires jQuery 1.6+. For an older version of this plugin that works under jQuery 1.4.2+, see <a href="https://github.com/mathiasbynens/jquery-placeholder/tree/v1.8.7">v1.8.7</a>.</li>
+<li>Works in all A-grade browsers, including IE6.</li>
+<li>Automatically checks if the browser natively supports the HTML5 <code>placeholder</code> attribute for <code>input</code> and <code>textarea</code> elements. If this is the case, the plugin won’t do anything. If <code>@placeholder</code> is only supported for <code>input</code> elements, the plugin will leave those alone and apply to <code>textarea</code>s exclusively. (This is the case for Safari 4, Opera 11.00, and possibly other browsers.)</li>
+<li>Caches the results of its two feature tests in <code>jQuery.fn.placeholder.input</code> and <code>jQuery.fn.placeholder.textarea</code>. For example, if <code>@placeholder</code> is natively supported for <code>input</code> elements, <code>jQuery.fn.placeholder.input</code> will be <code>true</code>. After loading the plugin, you can re-use these properties in your own code.</li>
+<li><p>Makes sure it never causes duplicate IDs in your DOM, even in browsers that need an extra <code>input</code> element to fake <code>@placeholder</code> for password inputs. This means you can safely do stuff like:</p>
+<pre><code class="highlight html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"bar"</span><span class="nt">&gt;</span>Example label<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">placeholder=</span><span class="s">"foo"</span> <span class="na">id=</span><span class="s">"bar"</span><span class="nt">&gt;</span>
+</code></pre>
+
+<p>And the <code>&lt;label&gt;</code> will always point to the <code>&lt;input&gt;</code> element you’d expect. Also, all CSS styles based on the ID will just work™.</p></li>
+</ul>
+
+<h2>License</h2>
+
+<p>This plugin is available under <a href="http://mths.be/mit">the MIT license</a>.</p>
+
+<h2>Thanks to…</h2>
+
+<ul>
+<li><a href="http://paulirish.com/">Paul Irish</a> for his inspiring snippet in <a href="http://jquery14.com/day-05/jquery-1-4-hawtness-1-with-paul-irish">jQuery 1.4 Hawtness #1</a></li>
+<li>everyone from <a href="http://webchat.freenode.net/?channels=jquery">#jquery</a> for the tips, ideas and patches</li>
+<li>temp01 for his major contributions</li>
+<li>anyone who <a href="https://github.com/mathiasbynens/jquery-placeholder/contributors">contributed a patch</a> or <a href="https://github.com/mathiasbynens/jquery-placeholder/issues">made a helpful suggestion</a></li>
+</ul>
+
+<p><em>– <a href="http://mathiasbynens.be/">Mathias</a></em></p>
+
+    </div>
+    <footer class="footer">
+      <div class="resource">
+        <label>Tags</label>
+        <ul class="tags">
+          <li><a href="/tags/scrapping.html">Scrapping (1)</a></li>
+          <li><a href="/tags/dev.html">Dev (1)</a></li>
+          <li><a href="/tags/random.html">Random (1)</a></li>
+          <li><a href="/tags/programming.html">Programming (6)</a></li>
+          <li><a href="/tags/analysis.html">Analysis (2)</a></li>
+          <li><a href="/tags/python.html">Python (5)</a></li>
+          <li><a href="/tags/opensource.html">Opensource (2)</a></li>
+          <li><a href="/tags/ruby.html">Ruby (3)</a></li>
+          <li><a href="/tags/hacking.html">Hacking (1)</a></li>
+          <li><a href="/tags/conferences.html">Conferences (3)</a></li>
+          <li><a href="/tags/community.html">Community (4)</a></li>
+          <li><a href="/tags/open-hardware.html">Open Hardware (2)</a></li>
+          <li><a href="/tags/opennews.html">Opennews (1)</a></li>
+          <li><a href="/tags/community.html">Community (3)</a></li>
+          <li><a href="/tags/piratebox.html">Piratebox (2)</a></li>
+          <li><a href="/tags/open-internet.html">Open Internet (2)</a></li>
+          <li><a href="/tags/share.html">Share (2)</a></li>
+          <li><a href="/tags/hacking.html">Hacking (1)</a></li>
+          <li><a href="/tags/databootcamp.html">Data Boot Camp (1)</a></li>
+          <li><a href="/tags/workshop.html">Workshop (1)</a></li>
+          <li><a href="/tags/javascript.html">Javascript (1)</a></li>
+          <li><a href="/tags/opensource.html">Opensource (1)</a></li>
+          <li><a href="/tags/open-data.html">Open Data (1)</a></li>
+          <li><a href="/tags/pandas.html">Pandas (1)</a></li>
+          <li><a href="/tags/dask.html">Dask (2)</a></li>
+          <li><a href="/tags/boletin-oficial.html">Boletin Oficial (1)</a></li>
+          <li><a href="/tags/argentina.html">Argentina (1)</a></li>
+          <li><a href="/tags/data.html">Data (2)</a></li>
+          <li><a href="/tags/datos.html">Datos (2)</a></li>
+          <li><a href="/tags/pydata.html">Pydata (2)</a></li>
+          <li><a href="/tags/nlp.html">Nlp (2)</a></li>
+          <li><a href="/tags/freeling.html">Freeling (1)</a></li>
+          <li><a href="/tags/nodejs.html">Nodejs (1)</a></li>
+          <li><a href="/tags/data-science.html">Data Science (1)</a></li>
+        </ul>
+      </div>
+      <div class="resource">
+        <label>Resources</label>
+        <ul class="links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#projects">Projects</a></li>
+          <li><a href="/talks.html">Talks</a></li>
+          <li><a href="/feed.xml">Feed</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-29516046-2');ga('send','pageview');
+    </script>
+    <script type="text/javascript">
+      var images = ['berlin.png', 'brussels.png', 'rosario.png', 'austin.png'],
+          element = document.getElementById('main-image'),
+          img;
+      img = images[Math.floor(Math.random() * images.length)];
+
+      element.setAttribute('src', '/images/' + img);
+    </script>
+  </body>
+</html>

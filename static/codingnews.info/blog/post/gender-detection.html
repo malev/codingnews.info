@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Coding News - Gender detection</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+
+    <meta name="author" content="Marcos Vanetta">
+    <meta name="description" content="Blog about my experiences as a Knight Mozilla Fellow">
+    <meta name="keywords" content="DDJ, Texas, open data, open source, ruby, python, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/stylesheets/all.css">
+    <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .c, .highlight .cd {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .kc {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kd {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kv {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .mf {
+  color: #009999;
+}
+.highlight .mh {
+  color: #009999;
+}
+.highlight .il {
+  color: #009999;
+}
+.highlight .mi {
+  color: #009999;
+}
+.highlight .mo {
+  color: #009999;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #009999;
+}
+.highlight .sb {
+  color: #d14;
+}
+.highlight .sc {
+  color: #d14;
+}
+.highlight .sd {
+  color: #d14;
+}
+.highlight .s2 {
+  color: #d14;
+}
+.highlight .se {
+  color: #d14;
+}
+.highlight .sh {
+  color: #d14;
+}
+.highlight .si {
+  color: #d14;
+}
+.highlight .sx {
+  color: #d14;
+}
+.highlight .sr {
+  color: #009926;
+}
+.highlight .s1 {
+  color: #d14;
+}
+.highlight .ss {
+  color: #990073;
+}
+.highlight .s {
+  color: #d14;
+}
+.highlight .na {
+  color: #008080;
+}
+.highlight .bp {
+  color: #999999;
+}
+.highlight .nb {
+  color: #0086B3;
+}
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #008080;
+}
+.highlight .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #800080;
+}
+.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #555555;
+}
+.highlight .nt {
+  color: #000080;
+}
+.highlight .vc {
+  color: #008080;
+}
+.highlight .vg {
+  color: #008080;
+}
+.highlight .vi {
+  color: #008080;
+}
+.highlight .nv {
+  color: #008080;
+}
+.highlight .ow {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .o {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #bbbbbb;
+}
+.highlight {
+  background-color: #f8f8f8;
+}
+    .highlight {
+      background-color: #FFF;
+    }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header class="main">
+      <div class="title">
+        <a href="http://codingnews.info/"><h2>CODING<strong>NEWS</strong></h2></a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/talks.html">Talks</a></li>
+          <li><a href="http://twitter.com/malev"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="http://github.com/malev"><i class="fa fa-github-alt"></i></a></li>
+          <li><a href="http://ar.linkedin.com/in/marcosvanetta"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+      <img src="/images/100_0855.JPG" id="main-image">
+    </header>
+    <div class="main-container">
+        <header class="article">
+          <h2>Gender detection</h2>
+          <span class="date">
+            May  5
+          </span>
+        </header>
+        <article class="post">
+          <p>As the debate on the <strong>Gender Wage Gap</strong> continues across US America (and sometimes the world), we began exploring a dataset that included names and salaries of state workers. The gender column, which was necessary for our investigation, was missing.</p>
+
+<p>As always, we had two options: Request the missing data or find a software solution. As programmers, we sought a software solution — even though we&rsquo;d knew there would be limitations on testing the veracity of our data. But we also wanted to test some of the <strong>gender detection</strong> tools available on the Internet.</p>
+
+<h2>The problem</h2>
+
+<p>Gender detection is not an easy task. Names are usually unpredictable and that makes any automatic solution difficult.</p>
+
+<p>Many automated solutions use datasets that associate citizen names to gender. This association is based on how many citizens are registered with that name in a given country. Sometimes a name is given to both males and females, and in those cases, we associate a probability of how likely the name corresponds to a gender. Based on this, we have tree situations for a given name: We can predict the gender based on the name; we can use the probability of a name used for both genders and set a threshold to determine whether to accept or reject what our algorithm guesses is the correct gender; or the name isn&rsquo;t included in the database, and we can&rsquo;t make a guess.</p>
+
+<p>Finally, since these solutions are based on first names, we can&rsquo;t use them to analyze full names that include surnames. So, &ldquo;Marcos&rdquo; will work, but &ldquo;Marcos Vanetta&rdquo; won&rsquo;t. That&rsquo;s raises another problem: We need to parse names. This problem will not be cover on this post.</p>
+
+<p>After a quick search on the Internet and a popular Open Source repository we encountered several solutions, <strong>but</strong> we tested only four. Luckily for us, we had a control group provided by a government office.</p>
+
+<h2>We tested:</h2>
+
+<ul>
+<li><a href="https://github.com/jeremybmerrill/beauvoir">Beauvoir</a>: Based on data from <a href="http://bocoup.com/weblog/global-name-data/">Global Name Data</a>. Only works for USA and UK and it&rsquo;s writen in Ruby. </li>
+<li><a href="https://github.com/bmuller/sexmachine">Sexmachine</a>: Based on a dictionary with over 40000 names and genders. Works on many languages but it&rsquo;s really slow to fire up.</li>
+<li><a href="https://github.com/sholiday/genderPredictor">genderPredictor</a>: A wrapper around NLTK&rsquo;s Naive Bayes classifier for predicting the gender given a name. Works for USA names due it&rsquo;s database comes from the <a href="http://www.ssa.gov/oact/babynames/limits.html">US Social Security Administration</a></li>
+<li><a href="http://genderize.io/">Genderize</a>: API with a the database that contains 86710 distinct names across 74 countries and 81 languages. <strong>NOT open source</strong> and with very limited access.</li>
+</ul>
+
+<h2>Considerations</h2>
+
+<p>Names are often tied to a person&rsquo;s country of origin. Since our control group corresponded to names in US America and all of the tools work with US American names, we set that flag on all the tools.</p>
+
+<h2>Process</h2>
+
+<p>Nothing too fancy, we just ran each library against a test dataset. Each library was configured to use US American dictionaries because the dataset is based in US residents. The code is <a href="https://gist.github.com/malev/f2e5a2d37f0fea5d4a74">here</a> and <a href="https://gist.github.com/malev/af89339e581558788f06">here</a>.</p>
+
+<h2>Results</h2>
+
+<p>The result among with the test data are published <a href="/gender-detection.html">here</a>. From the results you can see that the assert lever of each tool is:</p>
+
+<p>| Results | Beauvoir | sexMachine | Genderize | genderPredictor |
+| &mdash;&mdash;- |&mdash;&mdash;&mdash;:-|&mdash;&mdash;&mdash;&ndash;:-|&mdash;&mdash;&mdash;-:-|&mdash;&mdash;&mdash;&mdash;&mdash;-:-|
+| Right  | 77.35%  | 85,68%      |90,68%    | 77,35%          |
+| Wrong  | 0,238%    |  4,67%      |2,38%      | 22,61%          |
+| Unknown | 22,72    |  9,52%      |6,9%      | 0%              |</p>
+
+<h3>Which tool is the best?</h3>
+
+<p>That&rsquo;s up to you. If you can handle a high level of uncertainy, then maybe Beauvoir or Genderize are your best options. Also, it seems as Genderize provided the best results, using it is not usually the best experience due the API limitations. If you are considering using it and you have a big dataset, then you should consider a proxy or some type of cache in the middle.
+SexMachine also had great results, but the level of wrong answers might be too high. It&rsquo;s of course up to you and the project you are working on.</p>
+
+<h2>Conclusions</h2>
+
+<p>The problem with this solution is you can&rsquo;t be absolutely sure of the results, and you should really have this in mind before deciding to do some kind of gender detection.
+Also, we found at least two errors in the test dataset. We decided to leave it like that because it was official data provided by a government office.</p>
+
+<p><em>Note:</em> To be honest, we prefer to request the data from a responsable organization rather than using any software based on guesses.</p>
+
+<p><em>Note:</em> More about the gender wage gap:</p>
+
+<ul>
+<li><a href="http://www.texastribune.org/2014/03/21/gender-wage-gap-prevalent-throughout-texas-governm/">Gender Wage Gap Prevalent Throughout Texas Government</a></li>
+<li><a href="http://www.vox.com/cards/gender-wage-gap-men-women-pay/what-is-the-gender-wage-gap">What is the gender wage gap?</a></li>
+<li><a href="http://www.pagina12.com.ar/diario/sociedad/3-214963-2013-03-03.html">Radriografía de la desigualdad</a></li>
+<li><a href="https://duckduckgo.com/?q=gender+wage+gap">The web</a></li>
+</ul>
+
+        </article>
+        <footer>
+          <b>Tags:</b>
+          <a href="/tags/programming.html">programming</a>, <a href="/tags/analysis.html">analysis</a>
+        </footer>
+        <div class="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'codingnews'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer class="footer">
+      <div class="resource">
+        <label>Tags</label>
+        <ul class="tags">
+          <li><a href="/tags/scrapping.html">Scrapping (1)</a></li>
+          <li><a href="/tags/dev.html">Dev (1)</a></li>
+          <li><a href="/tags/random.html">Random (1)</a></li>
+          <li><a href="/tags/programming.html">Programming (6)</a></li>
+          <li><a href="/tags/analysis.html">Analysis (2)</a></li>
+          <li><a href="/tags/python.html">Python (5)</a></li>
+          <li><a href="/tags/opensource.html">Opensource (2)</a></li>
+          <li><a href="/tags/ruby.html">Ruby (3)</a></li>
+          <li><a href="/tags/hacking.html">Hacking (1)</a></li>
+          <li><a href="/tags/conferences.html">Conferences (3)</a></li>
+          <li><a href="/tags/community.html">Community (4)</a></li>
+          <li><a href="/tags/open-hardware.html">Open Hardware (2)</a></li>
+          <li><a href="/tags/opennews.html">Opennews (1)</a></li>
+          <li><a href="/tags/community.html">Community (3)</a></li>
+          <li><a href="/tags/piratebox.html">Piratebox (2)</a></li>
+          <li><a href="/tags/open-internet.html">Open Internet (2)</a></li>
+          <li><a href="/tags/share.html">Share (2)</a></li>
+          <li><a href="/tags/hacking.html">Hacking (1)</a></li>
+          <li><a href="/tags/databootcamp.html">Data Boot Camp (1)</a></li>
+          <li><a href="/tags/workshop.html">Workshop (1)</a></li>
+          <li><a href="/tags/javascript.html">Javascript (1)</a></li>
+          <li><a href="/tags/opensource.html">Opensource (1)</a></li>
+          <li><a href="/tags/open-data.html">Open Data (1)</a></li>
+          <li><a href="/tags/pandas.html">Pandas (1)</a></li>
+          <li><a href="/tags/dask.html">Dask (2)</a></li>
+          <li><a href="/tags/boletin-oficial.html">Boletin Oficial (1)</a></li>
+          <li><a href="/tags/argentina.html">Argentina (1)</a></li>
+          <li><a href="/tags/data.html">Data (2)</a></li>
+          <li><a href="/tags/datos.html">Datos (2)</a></li>
+          <li><a href="/tags/pydata.html">Pydata (2)</a></li>
+          <li><a href="/tags/nlp.html">Nlp (2)</a></li>
+          <li><a href="/tags/freeling.html">Freeling (1)</a></li>
+          <li><a href="/tags/nodejs.html">Nodejs (1)</a></li>
+          <li><a href="/tags/data-science.html">Data Science (1)</a></li>
+        </ul>
+      </div>
+      <div class="resource">
+        <label>Resources</label>
+        <ul class="links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#projects">Projects</a></li>
+          <li><a href="/talks.html">Talks</a></li>
+          <li><a href="/feed.xml">Feed</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-29516046-2');ga('send','pageview');
+    </script>
+    <script type="text/javascript">
+      var images = ['berlin.png', 'brussels.png', 'rosario.png', 'austin.png'],
+          element = document.getElementById('main-image'),
+          img;
+      img = images[Math.floor(Math.random() * images.length)];
+
+      element.setAttribute('src', '/images/' + img);
+    </script>
+  </body>
+</html>

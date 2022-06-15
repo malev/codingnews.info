@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Coding News</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+
+    <meta name="author" content="Marcos Vanetta">
+    <meta name="description" content="Blog about my experiences as a Knight Mozilla Fellow">
+    <meta name="keywords" content="DDJ, Texas, open data, open source, ruby, python, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/stylesheets/all.css">
+    <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .c, .highlight .cd {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .kc {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kd {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kv {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .mf {
+  color: #009999;
+}
+.highlight .mh {
+  color: #009999;
+}
+.highlight .il {
+  color: #009999;
+}
+.highlight .mi {
+  color: #009999;
+}
+.highlight .mo {
+  color: #009999;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #009999;
+}
+.highlight .sb {
+  color: #d14;
+}
+.highlight .sc {
+  color: #d14;
+}
+.highlight .sd {
+  color: #d14;
+}
+.highlight .s2 {
+  color: #d14;
+}
+.highlight .se {
+  color: #d14;
+}
+.highlight .sh {
+  color: #d14;
+}
+.highlight .si {
+  color: #d14;
+}
+.highlight .sx {
+  color: #d14;
+}
+.highlight .sr {
+  color: #009926;
+}
+.highlight .s1 {
+  color: #d14;
+}
+.highlight .ss {
+  color: #990073;
+}
+.highlight .s {
+  color: #d14;
+}
+.highlight .na {
+  color: #008080;
+}
+.highlight .bp {
+  color: #999999;
+}
+.highlight .nb {
+  color: #0086B3;
+}
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #008080;
+}
+.highlight .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #800080;
+}
+.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #555555;
+}
+.highlight .nt {
+  color: #000080;
+}
+.highlight .vc {
+  color: #008080;
+}
+.highlight .vg {
+  color: #008080;
+}
+.highlight .vi {
+  color: #008080;
+}
+.highlight .nv {
+  color: #008080;
+}
+.highlight .ow {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .o {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #bbbbbb;
+}
+.highlight {
+  background-color: #f8f8f8;
+}
+    .highlight {
+      background-color: #FFF;
+    }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header class="main">
+      <div class="title">
+        <a href="http://codingnews.info/"><h2>CODING<strong>NEWS</strong></h2></a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/talks.html">Talks</a></li>
+          <li><a href="http://twitter.com/malev"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="http://github.com/malev"><i class="fa fa-github-alt"></i></a></li>
+          <li><a href="http://ar.linkedin.com/in/marcosvanetta"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+      <img src="/images/100_0855.JPG" id="main-image">
+    </header>
+    <div class="main-container">
+        <h1>FastClick</h1>
+
+<p>FastClick is a simple, easy-to-use library for eliminating the 300ms delay between a physical tap and the firing of a <code>click</code> event on mobile browsers. The aim is to make your application feel less laggy and more responsive while avoiding any interference with your current logic.</p>
+
+<p>FastClick is developed by <a href="http://labs.ft.com/">FT Labs</a>, part of the Financial Times.</p>
+
+<p><a href="http://maxime.sh/2013/02/supprimer-le-lag-des-clics-sur-mobile-avec-fastclick/">Explication en français</a>.</p>
+
+<p><a href="https://developer.mozilla.org/ja/docs/Mozilla/Firefox_OS/Apps/Tips_and_techniques#Make_events_immediate">日本語で説明</a>。</p>
+
+<h2>Why does the delay exist?</h2>
+
+<p>According to <a href="https://developers.google.com/mobile/articles/fast_buttons">Google</a>:</p>
+
+<blockquote>
+<p>&hellip;mobile browsers will wait approximately 300ms from the time that you tap the button to fire the click event. The reason for this is that the browser is waiting to see if you are actually performing a double tap.</p>
+</blockquote>
+
+<h2>Compatibility</h2>
+
+<p>The library has been deployed as part of the <a href="http://app.ft.com/">FT Web App</a> and is tried and tested on the following mobile browsers:</p>
+
+<ul>
+<li>Mobile Safari on iOS 3 and upwards</li>
+<li>Chrome on iOS 5 and upwards</li>
+<li>Chrome on Android (ICS)</li>
+<li>Opera Mobile 11.5 and upwards</li>
+<li>Android Browser since Android 2</li>
+<li>PlayBook OS 1 and upwards</li>
+</ul>
+
+<h2>When it isn&rsquo;t needed</h2>
+
+<p>FastClick doesn&rsquo;t attach any listeners on desktop browsers.</p>
+
+<p>Chrome 32+ on Android with <code>width=device-width</code> in the <a href="https://developer.mozilla.org/en-US/docs/Mobile/Viewport_meta_tag">viewport meta tag</a> doesn&rsquo;t have a 300ms delay, therefore listeners aren&rsquo;t attached.</p>
+<pre><code class="highlight html"><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+</code></pre>
+
+<p>Same goes for Chrome on Android (all versions) with <code>user-scalable=no</code> in the viewport meta tag. But be aware that <code>user-scalable=no</code> also disables pinch zooming, which may be an accessibility concern.</p>
+
+<p>For IE10, you can use <code>-ms-touch-action: none</code> to disable double-tap-to-zoom on certain elements (like links and buttons) as described in <a href="http://blogs.msdn.com/b/askie/archive/2013/01/06/how-to-implement-the-ms-touch-action-none-property-to-disable-double-tap-zoom-on-touch-devices.aspx">this MSDN blog post</a>.</p>
+
+<h2>Usage</h2>
+
+<p>Include fastclick.js in your JavaScript bundle or add it to your HTML page like this:</p>
+<pre><code class="highlight html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'application/javascript'</span> <span class="na">src=</span><span class="s">'/path/to/fastclick.js'</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+
+<p>The script must be loaded prior to instantiating FastClick on any element of the page.</p>
+
+<p>To instantiate FastClick on the <code>body</code>, which is the recommended method of use:</p>
+<pre><code class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'load'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">FastClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre>
+
+<p>Don&rsquo;t forget to add a <a href="https://developer.mozilla.org/en-US/docs/DOM/EventTarget.removeEventListener#Compatibility">shim</a> for <code>addEventListener</code> if you want to support IE8 and below.</p>
+
+<p>Otherwise, if you&rsquo;re using jQuery:</p>
+<pre><code class="highlight javascript"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">FastClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+
+<p>If you&rsquo;re using Browserify or another CommonJS-style module system, the <code>FastClick.attach</code> function will be returned when you call <code>require(&#39;fastclick&#39;)</code>. As a result, the easiest way to use FastClick with these loaders is as follows:</p>
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">attachFastClick</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fastclick'</span><span class="p">);</span>
+<span class="nx">attachFastClick</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+</code></pre>
+
+<h3>Minified</h3>
+
+<p>Run <code>make</code> to build a minified version of FastClick using the Closure Compiler REST API. The minified file is saved to <code>build/fastclick.min.js</code>.</p>
+
+<h3>AMD</h3>
+
+<p>FastClick has AMD (Asynchronous Module Definition) support. This allows it to be lazy-loaded with an AMD loader, such as <a href="http://requirejs.org/">RequireJS</a>. Note that when using the AMD style require, the full <code>FastClick</code> object will be returned, <em>not</em> <code>FastClick.attach</code></p>
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">FastClick</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fastclick'</span><span class="p">);</span>
+<span class="nx">FastClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+</code></pre>
+
+<h3>Package managers</h3>
+
+<p>You can install FastClick using <a href="https://github.com/component/component">Component</a>, <a href="https://npmjs.org/package/fastclick">npm</a> or <a href="http://bower.io/">Bower</a>.</p>
+
+<p>For Ruby, there&rsquo;s a third-party gem called <a href="http://rubygems.org/gems/fastclick-rails">fastclick-rails</a>. For .NET there&rsquo;s a <a href="http://nuget.org/packages/FastClick">NuGet package</a>.</p>
+
+<h2>Advanced</h2>
+
+<h3>Ignore certain elements with <code>needsclick</code></h3>
+
+<p>Sometimes you need FastClick to ignore certain elements. You can do this easily by adding the <code>needsclick</code> class.
+<code>html
+&lt;a class=&quot;needsclick&quot;&gt;Ignored by FastClick&lt;/a&gt;
+</code></p>
+
+<h4>Use case 1: non-synthetic click required</h4>
+
+<p>Internally, FastClick uses <code>document.createEvent</code> to fire a synthetic <code>click</code> event as soon as <code>touchend</code> is fired by the browser. It then suppresses the additional <code>click</code> event created by the browser after that. In some cases, the non-synthetic <code>click</code> event created by the browser is required, as described in the <a href="http://ftlabs.github.com/fastclick/examples/focus.html">triggering focus example</a>.</p>
+
+<p>This is where the <code>needsclick</code> class comes in. Add the class to any element that requires a non-synthetic click.</p>
+
+<h4>Use case 2: Twitter Bootstrap 2.2.2 dropdowns</h4>
+
+<p>Another example of when to use the <code>needsclick</code> class is with dropdowns in Twitter Bootstrap 2.2.2. Bootstrap add its own <code>touchstart</code> listener for dropdowns, so you want to tell FastClick to ignore those. If you don&rsquo;t, touch devices will automatically close the dropdown as soon as it is clicked, because both FastClick and Bootstrap execute the synthetic click, one opens the dropdown, the second closes it immediately after.</p>
+<pre><code class="highlight html"><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-toggle needsclick"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>Dropdown<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+
+<h2>Examples</h2>
+
+<p>FastClick is designed to cope with many different browser oddities. Here are some examples to illustrate this:</p>
+
+<ul>
+<li><a href="http://ftlabs.github.com/fastclick/examples/layer.html">basic use</a> showing the increase in perceived responsiveness</li>
+<li><a href="http://ftlabs.github.com/fastclick/examples/focus.html">triggering focus</a> on an input element from a <code>click</code> handler</li>
+<li><a href="http://ftlabs.github.com/fastclick/examples/input.html">input element</a> which never receives clicks but gets fast focus</li>
+</ul>
+
+<h2>Tests</h2>
+
+<p>There are no automated tests. The files in <code>tests/</code> are manual reduced test cases. We&rsquo;ve had a think about how best to test these cases, but they tend to be very browser/device specific and sometimes subjective which means it&rsquo;s not so trivial to test.</p>
+
+<h2>Credits and collaboration</h2>
+
+<p>FastClick is maintained by <a href="http://twitter.com/rowanbeentje">Rowan Beentje</a>, <a href="http://twitter.com/mcaruanagalizia">Matthew Caruana Galizia</a> and <a href="http://twitter.com/andrewsmatt">Matthew Andrews</a> at <a href="http://labs.ft.com">FT Labs</a>. All open source code released by FT Labs is licenced under the MIT licence. We welcome comments, feedback and suggestions.  Please feel free to raise an issue or pull request.</p>
+
+    </div>
+    <footer class="footer">
+      <div class="resource">
+        <label>Tags</label>
+        <ul class="tags">
+          <li><a href="/tags/scrapping.html">Scrapping (1)</a></li>
+          <li><a href="/tags/dev.html">Dev (1)</a></li>
+          <li><a href="/tags/random.html">Random (1)</a></li>
+          <li><a href="/tags/programming.html">Programming (6)</a></li>
+          <li><a href="/tags/analysis.html">Analysis (2)</a></li>
+          <li><a href="/tags/python.html">Python (5)</a></li>
+          <li><a href="/tags/opensource.html">Opensource (2)</a></li>
+          <li><a href="/tags/ruby.html">Ruby (3)</a></li>
+          <li><a href="/tags/hacking.html">Hacking (1)</a></li>
+          <li><a href="/tags/conferences.html">Conferences (3)</a></li>
+          <li><a href="/tags/community.html">Community (4)</a></li>
+          <li><a href="/tags/open-hardware.html">Open Hardware (2)</a></li>
+          <li><a href="/tags/opennews.html">Opennews (1)</a></li>
+          <li><a href="/tags/community.html">Community (3)</a></li>
+          <li><a href="/tags/piratebox.html">Piratebox (2)</a></li>
+          <li><a href="/tags/open-internet.html">Open Internet (2)</a></li>
+          <li><a href="/tags/share.html">Share (2)</a></li>
+          <li><a href="/tags/hacking.html">Hacking (1)</a></li>
+          <li><a href="/tags/databootcamp.html">Data Boot Camp (1)</a></li>
+          <li><a href="/tags/workshop.html">Workshop (1)</a></li>
+          <li><a href="/tags/javascript.html">Javascript (1)</a></li>
+          <li><a href="/tags/opensource.html">Opensource (1)</a></li>
+          <li><a href="/tags/open-data.html">Open Data (1)</a></li>
+          <li><a href="/tags/pandas.html">Pandas (1)</a></li>
+          <li><a href="/tags/dask.html">Dask (2)</a></li>
+          <li><a href="/tags/boletin-oficial.html">Boletin Oficial (1)</a></li>
+          <li><a href="/tags/argentina.html">Argentina (1)</a></li>
+          <li><a href="/tags/data.html">Data (2)</a></li>
+          <li><a href="/tags/datos.html">Datos (2)</a></li>
+          <li><a href="/tags/pydata.html">Pydata (2)</a></li>
+          <li><a href="/tags/nlp.html">Nlp (2)</a></li>
+          <li><a href="/tags/freeling.html">Freeling (1)</a></li>
+          <li><a href="/tags/nodejs.html">Nodejs (1)</a></li>
+          <li><a href="/tags/data-science.html">Data Science (1)</a></li>
+        </ul>
+      </div>
+      <div class="resource">
+        <label>Resources</label>
+        <ul class="links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#projects">Projects</a></li>
+          <li><a href="/talks.html">Talks</a></li>
+          <li><a href="/feed.xml">Feed</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-29516046-2');ga('send','pageview');
+    </script>
+    <script type="text/javascript">
+      var images = ['berlin.png', 'brussels.png', 'rosario.png', 'austin.png'],
+          element = document.getElementById('main-image'),
+          img;
+      img = images[Math.floor(Math.random() * images.length)];
+
+      element.setAttribute('src', '/images/' + img);
+    </script>
+  </body>
+</html>

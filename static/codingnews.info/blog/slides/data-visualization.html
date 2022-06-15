@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Data visualization (hands on!)</title>
+    <meta name="description" content="Limpieza de datos (hands on!)">
+    <meta name="author" content="Marcos Vanetta">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Data Visualization<h1>
+          <h2>Hands on!</h2>
+          <p>
+            <small>Por <a href="http://codingnews.info">Marcos Vanetta</a> / <a href="http://twitter.com/malev">@malev</a></small>
+          </p>
+        </section>
+
+        <section>
+          <h2>Who am I?</h2>
+          <ul>
+            <li style="list-style: none;">Marcos Vanetta</li>
+            <li style="list-style: none;">Hacks/Hackers Buenos Aires</li>
+            <li style="list-style: none;">Knight/Mozilla Fellow</li>
+            <li style="list-style: none;">The Texas Tribune</li>
+            <li style="list-style: none;">@malev</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Where are we?</h2>
+          <ul>
+            <li>Question</li>
+            <li>Dataset</li>
+            <li>Idea</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Why?</h3>
+          <ul>
+            <li>Show some context (<a href="http://salaries.texastribune.org/houston/">link</a>)</li>
+            <li>Save some words (<a href="http://www.texastribune.org/2014/09/24/regulators-consider-northeast-texas-reservoir/">link</a>)</li>
+            <li>Easy to explain (<a href="https://www.texastribune.org/2014/10/14/open-space-texas/">link</a>)</li>
+            <li><strong>Tell a story</strong></li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>We are going to start with a CSV file</h4>
+          <p>What is a CSV file?</p>
+        </section>
+
+        <section>
+          <h3>DataWrapper</h3>
+          <ul>
+            <li>Houston departments with the most employees</li>
+            <li>https://www.datawrapper.de</li>
+            <li>Problems with formatting</li>
+            <li>Publish!</li>
+          </ul>
+          <p><a href="data-visualization/houston.csv">houston.csv</a></p>
+        </section>
+
+        <section>
+          <h3>Making a quick map</h3>
+          <ul>
+            <li>Checking the dataset</li>
+            <li>Fusion tables</li>
+            <li>Publish!</li>
+          </ul>
+          <p><a href="data-visualization/hospitals2.csv">hospitals2.csv</a></p>
+        </section>
+
+        <section>
+          <h3>Texas Enterprise Fund Awards</h3>
+          <ul>
+            <li>Story about World cup</li>
+            <li>Texas Enterprise Fund Awards (data)</li>
+            <li><a href="http://timeline.knightlab.com/">Timeline.js</a></li>
+          </ul>
+          <p><a href="data-visualization/awards.csv">awards.csv</a></p>
+        </section>
+
+        <section>
+          <h3>Questions?</h3>
+        </section>
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
