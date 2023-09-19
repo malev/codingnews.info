@@ -1,5 +1,4 @@
 FROM ruby:2.1.2-onbuild
-MAINTAINER Marcos Vanetta "marcosvanetta@gmail.com"
 
 RUN apt-get update
 RUN apt-get -y install nginx nodejs npm
