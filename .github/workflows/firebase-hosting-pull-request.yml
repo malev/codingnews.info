@@ -15,7 +15,6 @@ jobs:
           bundler-cache: true
       - run: bundle install
       - run: bundle exec middleman build
-      - run: ls
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
